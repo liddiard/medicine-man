@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-image: url(../img/ricepaper2.png); /* image from http://subtlepatterns.com/ */
+}
+
+#wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255, 0.5);
+    box-shadow: 0 5px 20px rgba(0,0,0, 0.5);
+}
+
+header {
+    padding: 1em 2em;
+    
+    h1 {
+        margin: 0;
+    }
+}
