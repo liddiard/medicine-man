@@ -3,7 +3,7 @@
 $main_font: 'Merriweather', Georgia, serif;
 $main_width: 960px;
 $footer_height: 96px;
-$header_margin: 30px;
+$header_margin: 20px;
 
 @mixin transition($property, $speed) {
     -webkit-transition: $property $speed;
@@ -39,7 +39,7 @@ p {
 }
 
 header {
-    padding: 0.5em $header_margin;
+    padding: 0 $header_margin;
 
     h1 {
         font-size: 300%;
@@ -61,14 +61,24 @@ header {
 }
 
 section#map {
+    $map_height: 450px;
+    border-top: 1px solid black;
     clear: both;
 
     .places {
+        $num_places: 4;
+        $num_ads: 2;
+        $ad_height: 60; 
         float: left;
         width: 360px;
 
         .place {
+            height: ($map_height - $ad_height * $num_ads) / 4;
+            font-size: 0.9em;
             
+            h4 {
+                font-weight: bold;
+            }
         }
     }
     iframe {
