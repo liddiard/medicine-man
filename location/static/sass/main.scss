@@ -3,6 +3,7 @@
 $main_font: 'Merriweather', Georgia, serif;
 $main_width: 960px;
 $footer_height: 96px;
+$header_margin: 30px;
 
 @mixin transition($property, $speed) {
     -webkit-transition: $property $speed;
@@ -27,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
 a {
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 p {
@@ -34,14 +39,47 @@ p {
 }
 
 header {
-    padding: 1em 2em;
+    padding: 0.5em $header_margin;
 
     h1 {
         font-size: 300%;
+        float: left;
+    }
+
+    nav {
+        float: right;
+
+        ul {
+            margin-top: 25px;
+
+            > li {
+                display: inline-block;
+                margin-left: 1em;
+            }
+        }
+    }
+}
+
+section#map {
+    clear: both;
+
+    .places {
+        float: left;
+        width: 360px;
+
+        .place {
+            
+        }
+    }
+    iframe {
+        display: block;
+        float: left;
     }
 }
 
 section#rotator {
+    clear: both;
+
     li {
         position: relative;
 
@@ -53,6 +91,7 @@ section#rotator {
             color: white;
             background-color: rgba(0,0,0, 0.5);
             padding: 1em;
+            text-shadow: 1px 1px black;
 
             p {
                 margin: 1.2em 0 0 0;
@@ -74,7 +113,11 @@ a#footer {
     height: $footer_height;
     background-color: black;
     text-shadow: 0 0 2px white;
-    box-shadow: 0 0 0 1px rgba(0,0,0, 0.3) inset;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.5);
+
+    &:hover {
+        text-decoration: none;
+    }
 
     &:hover > img {
         opacity: 1;
@@ -91,7 +134,7 @@ a#footer {
     #content {
         max-width: $main_width;
         margin: 1em auto;
-        padding-left: 100px;
+        padding-left: $header_margin*2;
     }
 }
 
@@ -103,3 +146,8 @@ a#footer {
     box-shadow: 0 5px 20px rgba(0,0,0, 0.5);
 }
 
+.ad-half-banner {
+    width: 234px;
+    height: 60px;
+    background-color: gray;
+}
