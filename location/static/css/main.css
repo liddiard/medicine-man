@@ -68,11 +68,14 @@ html[xmlns] .slides {
   width: 200px;
   height: 100px;
   margin: -50px 0 0;
-  dipslay: block;
+  display: block;
   background: url(../img/rotator_nav.png) no-repeat 0 0;
   position: absolute;
   top: 50%;
   cursor: pointer; }
+
+.flex-control-paging {
+  display: none; }
 
 .flex-prev {
   left: -50px; }
