@@ -38,3 +38,23 @@ html[xmlns] .slides {display: block;}
  * include js that eliminates this class on page load */
 .no-js .slides > li:first-child {display: block;}
 
+/* User-added Styles
+********************************/
+.flex-direction-nav a {
+    width: 200px;
+    height: 100px;
+    margin: -50px 0 0;
+    dipslay: block;
+    background: url(../img/rotator_nav.png) no-repeat 0 0;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+}
+
+.flex-prev {
+    left: -50px;
+}
+
+.flex-next {
+    right: -50px;
+}
