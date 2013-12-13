@@ -50,13 +50,13 @@ p {
 header {
 
     h1 {
-        margin-left: 15px;
+        margin: 10px;
         font-size: 300%;
         float: left;
     }
 
     nav {
-        margin-right: 40px;
+        margin: 5px 30px 0 0;
         float: right;
 
         ul {
@@ -80,7 +80,8 @@ section#map {
         $num_ads: 2;
         $ad_height: 60; 
         float: left;
-        width: 360px;
+        width: 359px;
+        border-right: 1px solid rgba(0,0,0, 0.3);
 
         .place {
             $padding_top: 2px;
@@ -176,7 +177,7 @@ a#footer {
     #content {
         max-width: $main_width;
         margin: 1em auto;
-        padding-left: 30px;
+        padding-left: 20px;
     }
 }
 

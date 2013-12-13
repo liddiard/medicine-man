@@ -84,11 +84,11 @@ p {
   line-height: 1.5; }
 
 header h1 {
-  margin-left: 15px;
+  margin: 10px;
   font-size: 300%;
   float: left; }
 header nav {
-  margin-right: 40px;
+  margin: 5px 30px 0 0;
   float: right; }
   header nav ul {
     margin-top: 25px; }
@@ -101,7 +101,8 @@ section#map {
   clear: both; }
   section#map .places {
     float: left;
-    width: 360px; }
+    width: 359px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3); }
     section#map .places .place {
       height: 80.5px;
       line-height: 1.4;
@@ -168,7 +169,7 @@ a#footer {
   a#footer #content {
     max-width: 960px;
     margin: 1em auto;
-    padding-left: 30px; }
+    padding-left: 20px; }
 
 #wrap {
   max-width: 960px;
