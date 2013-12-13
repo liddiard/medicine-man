@@ -12,6 +12,16 @@ $header_margin: 20px;
     transition: $property $speed;
 }
 
+@mixin horizontal_gradient($start_color, $end_color) {
+    background: -moz-linear-gradient(top,  $start_color 0%, $end_color 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start_color), color-stop(100%,$end_color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $start_color 0%,$end_color 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $start_color 0%,$end_color 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $start_color 0%,$end_color 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $start_color 0%,$end_color 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#40000000',GradientType=0 ); /* IE6-9 */
+}
+
 body {
     margin: 0;
     border: 0;
@@ -73,8 +83,14 @@ section#map {
         width: 360px;
 
         .place {
-            height: ($map_height - $ad_height * $num_ads) / 4;
+            $padding_top: 2px;
+            $border_bottom: 1px;
+            height: (($map_height - $ad_height * $num_ads) / 4) - ($padding_top + $border_bottom);
+            line-height: 1.4;
             font-size: 0.9em;
+            padding-top: $padding_top;
+            border-bottom: $border_bottom solid rgba(0,0,0, 0.2);
+            @include horizontal_gradient(rgba(0,0,0, 0.025), rgba(0,0,0, 0));
             
             h4 {
                 font-weight: bold;
@@ -89,6 +105,7 @@ section#map {
 
 section#rotator {
     clear: both;
+    border-top: 1px solid black;
 
     li {
         position: relative;
@@ -154,6 +171,14 @@ a#footer {
     padding-bottom: $footer_height;
     background-color: rgba(255,255,255, 0.5);
     box-shadow: 0 5px 20px rgba(0,0,0, 0.5);
+}
+
+.address, .phone {
+    display: block;
+}
+
+.address {
+    color: gray;
 }
 
 .ad-half-banner {

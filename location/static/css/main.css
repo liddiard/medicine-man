@@ -103,8 +103,25 @@ section#map {
     float: left;
     width: 360px; }
     section#map .places .place {
-      height: 82.5px;
-      font-size: 0.9em; }
+      height: 79.5px;
+      line-height: 1.4;
+      font-size: 0.9em;
+      padding-top: 2px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0) 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.025)), color-stop(100%, rgba(0, 0, 0, 0)));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0) 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0) 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0) 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0) 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bf000000', endColorstr='#40000000',GradientType=0 );
+      /* IE6-9 */ }
       section#map .places .place h4 {
         font-weight: bold; }
   section#map iframe {
@@ -112,7 +129,8 @@ section#map {
     float: left; }
 
 section#rotator {
-  clear: both; }
+  clear: both;
+  border-top: 1px solid black; }
   section#rotator li {
     position: relative; }
     section#rotator li .commentary {
@@ -164,6 +182,12 @@ a#footer {
   padding-bottom: 96px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); }
+
+.address, .phone {
+  display: block; }
+
+.address {
+  color: gray; }
 
 .ad-half-banner {
   width: 234px;
