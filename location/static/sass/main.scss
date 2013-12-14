@@ -26,7 +26,8 @@ body {
     border: 0;
     padding: 0;
     font-family: $main_font;
-    background-image: url(../img/ricepaper2.png); /* image from http://subtlepatterns.com/ */
+    background-image: url(../img/zwartevilt.png); /* image from http://subtlepatterns.com/ */
+    background-color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -185,7 +186,7 @@ a#footer {
     max-width: $main_width;
     margin: 0 auto;
     padding-bottom: $footer_height;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: white;
     box-shadow: 0 5px 20px rgba(0,0,0, 0.5);
 }
 
