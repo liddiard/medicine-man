@@ -1,9 +1,10 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class Site(models.Model):
     domain = models.OneToOneField('router.Domain', related_name='content')
-    body = models.TextField()
+    body = HTMLField()
 
 
 class Image(models.Model):

@@ -46,7 +46,8 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
-    'storages'
+    'storages',
+    'tinymce'
 )
 
 LOCAL_APPS = (
