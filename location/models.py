@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class Site(models.Model):
+    domain = models.OneToOneField('router.Domain', related_name='location')
+    area = models.CharField(max_length=64)
