@@ -7,4 +7,7 @@ class Domain(models.Model):
     CONTENT = 'ct'
     KIND_CHOICES = ((LOCATION, 'location'), (CONTENT, 'content'))
     kind = models.CharField(max_length=2, choices=KIND_CHOICES, 
-                            default=LOCATION) 
+                            default=LOCATION)
+    
+    def __unicode__(self):
+        return "%s (%s)" % (self.name, self.url) 
