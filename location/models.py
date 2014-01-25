@@ -7,3 +7,15 @@ class Site(models.Model):
 
     def __unicode__(self):
         return self.domain
+
+
+class Artwork(models.Model):
+    image = models.ImageField(upload_to='/')
+    title = models.CharField(max_length=64)
+    date = models.CharField(max_length=32)
+    artist = models.CharField(max_length=32)
+    location = models.CharField(max_length=32)
+    url = models.URLField()
+
+    def __unicode__(self):
+        return self.title

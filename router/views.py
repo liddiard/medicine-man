@@ -11,5 +11,5 @@ def route(request):
         # send to location app
         return LocationFrontView.as_view()(request, domain.id)
     else: # domain is a content domain
-        return ContentFrontView.as_view()(request, domain.id)
         # send to content app
+        return ContentFrontView.as_view()(request, domain.id)
