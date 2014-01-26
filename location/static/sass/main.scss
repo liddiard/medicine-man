@@ -11,11 +11,21 @@ body {
 
 header {
     background-color: #333;
-    padding: 0.25em 1em;
     border-bottom: 2px solid white;
+    overflow: hidden;
+    display: table;
+    width: 100%;
 
     h1 {
+        display: table-cell;
+        vertical-align: middle;
         margin: 0;
+        padding: 0 1em;
+    }
+
+    #advert {
+        display: inline-block;
+        float: right;
     }
 }
 
@@ -29,6 +39,19 @@ footer {
 
     #refer {
         float: right;
+
+        span {
+            display: block;
+            text-align: right;
+        }
+
+        .pretext {
+            margin-bottom: 0.25em;
+        }
+
+        .company {
+            font-size: 2em;
+        }
     }
 }
 
@@ -49,5 +72,31 @@ footer {
         background-color: rgba(0,0,0, 0.5);
         display: inline-block;
         padding: 2em;
+        text-shadow: 1px 1px black;
+        font-family: 'Crimson Text', serif;
+
+        h1 {
+            margin: 0;
+        }
+
+        .featured-item {
+            font-style: italic;
+            padding-bottom: 0.75em;
+            border-bottom: 1px solid;
+            margin-bottom: 0.5em;
+        }
+
+        .artist {
+            font-size: 1.5em;
+        }
+
+        .location {
+            font-family: $helvetica;
+            font-weight: bold;
+            border-top: 1px solid;
+            padding-top: 1.25em;
+            margin-top: 1em;
+            font-size: 0.9em;
+        }
     }
 }

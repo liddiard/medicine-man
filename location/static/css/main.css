@@ -8,10 +8,18 @@ body {
 
 header {
   background-color: #333;
-  padding: 0.25em 1em;
-  border-bottom: 2px solid white; }
+  border-bottom: 2px solid white;
+  overflow: hidden;
+  display: table;
+  width: 100%; }
   header h1 {
-    margin: 0; }
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0 1em; }
+  header #advert {
+    display: inline-block;
+    float: right; }
 
 footer {
   position: absolute;
@@ -22,6 +30,13 @@ footer {
   box-sizing: border-box; }
   footer #refer {
     float: right; }
+    footer #refer span {
+      display: block;
+      text-align: right; }
+    footer #refer .pretext {
+      margin-bottom: 0.25em; }
+    footer #refer .company {
+      font-size: 2em; }
 
 .artwork {
   position: absolute;
@@ -40,4 +55,22 @@ footer {
     margin-top: 150px;
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;
-    padding: 2em; }
+    padding: 2em;
+    text-shadow: 1px 1px black;
+    font-family: 'Crimson Text', serif; }
+    .artwork .plaque h1 {
+      margin: 0; }
+    .artwork .plaque .featured-item {
+      font-style: italic;
+      padding-bottom: 0.75em;
+      border-bottom: 1px solid;
+      margin-bottom: 0.5em; }
+    .artwork .plaque .artist {
+      font-size: 1.5em; }
+    .artwork .plaque .location {
+      font-family: "Helevetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      border-top: 1px solid;
+      padding-top: 1.25em;
+      margin-top: 1em;
+      font-size: 0.9em; }
