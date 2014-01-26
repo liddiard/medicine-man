@@ -1,7 +1,8 @@
 $(document).ready(function(){
     $('.artwork, .plaque, .view-item').hide();
-    var piece = $('.artwork').first();
-    showPiece($('.artwork:visible'), piece);
+    var first = $('.artwork').first();
+    var current = $('.artwork:visible') // we need to give showPiece an empty selector
+    showPiece(current, first);
     $('.next').click(function(){
         var current = $('.artwork:visible');
         var next = current.next().length == 0 ? $('.artwork').first() : current.next();
