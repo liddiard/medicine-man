@@ -10,7 +10,7 @@
 </header>
 
 {% for artwork in gallery %}
-    <div class="artwork" style="background-image: url({{ artwork.image }})">
+    <div class="artwork" style="background-image: url({{ MEDIA_URL }}{{ artwork.image }})">
         <div class="plaque">
             <div class="featured-item">Featured item</div>
             <h1>{{ artwork.title }}</h1>
