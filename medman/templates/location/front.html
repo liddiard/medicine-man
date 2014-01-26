@@ -18,10 +18,10 @@
             <div class="date">{{ artwork.date }}</div>
             <div class="artist">{{ artwork.artist }}</div>
             <div class="location">{{ artwork.location }}</div>
-            {% if artwork.url %}
-                <a class="view-item btn" href="{{ artwork.url }}">View Item</a>
-            {% endif %}
         </div>
+        {% if artwork.url %}
+            <a class="view-item btn" href="{{ artwork.url }}">View Item</a>
+        {% endif %}
     </div>
 {% endfor %}
 

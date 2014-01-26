@@ -7,20 +7,23 @@ body {
     margin: 0;
     border: 0;
     padding: 0;
+    text-shadow: 1px 1px black;
+}
+
+a {
+    color: inherit;
 }
 
 header {
-    background-color: #333;
-    border-bottom: 2px solid white;
     overflow: hidden;
-    display: table;
     width: 100%;
 
     h1 {
-        display: table-cell;
-        vertical-align: middle;
-        margin: 0;
-        padding: 0 1em;
+        margin: 0.1em 0.3em;
+        font-size: 4em;
+        font-weight: normal;
+        display: inline-block;
+        text-shadow: 1px 2px 4px black;
     }
 
     #advert {
@@ -72,7 +75,6 @@ footer {
         background-color: rgba(0,0,0, 0.5);
         display: inline-block;
         padding: 2em;
-        text-shadow: 1px 1px black;
         font-family: 'Crimson Text', serif;
 
         h1 {
@@ -98,5 +100,29 @@ footer {
             margin-top: 1em;
             font-size: 0.9em;
         }
+    }
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255, 0.75);
+    background-color: rgba(0,0,0, 0.5);
+    padding: 0.25em 0.5em;
+    font-family: $helvetica;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgba(0,0,0, 0.75);
+        border-color: rgba(255,255,255, 1);
+    }
+
+    &:active {
+        background-color: black;
+    }
+
+    &.view-item {
+        margin-top: 1em;
     }
 }
