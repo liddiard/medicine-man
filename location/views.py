@@ -12,5 +12,5 @@ class FrontView(TemplateView):
         context = super(FrontView, self).get_context_data(**kwargs)
         domain = self.kwargs['domain']
         context['site'] = Site.objects.get(domain=domain)
-        context['artwork'] = Artwork.objects.order_by('?')
+        context['gallery'] = Artwork.objects.order_by('?')
         return context
