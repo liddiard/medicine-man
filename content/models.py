@@ -11,4 +11,4 @@ class Site(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='img')
+    image = models.ImageField(upload_to='content_images')
