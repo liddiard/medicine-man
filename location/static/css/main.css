@@ -31,7 +31,8 @@ footer {
   padding: 1em;
   box-sizing: border-box; }
   footer #refer {
-    float: right; }
+    float: right;
+    text-decoration: none; }
     footer #refer span {
       display: block;
       text-align: right; }

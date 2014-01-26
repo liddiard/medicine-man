@@ -20,6 +20,7 @@
             <div class="location">{{ artwork.location }}</div>
         </div>
         {% if artwork.url %}
+            <br/>
             <a class="view-item btn" href="{{ artwork.url }}">View Item</a>
         {% endif %}
     </div>
@@ -29,10 +30,10 @@
     <div id="places">
         <!-- places from Google Places API go here -->
     </div>
-    <div id="refer">
+    <a id="refer" href="http://medicinemangallery.com/">
         <span class="pretext">Brought to you by</span>
         <span class="company">Medicine Man Gallery</div>
-    </div>
+    </a>
 </footer>
 
 {% endblock %}
