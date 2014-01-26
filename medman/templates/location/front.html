@@ -10,6 +10,10 @@
     <img id="advert" src="http://i.imgur.com/69MjkMj.png"/>
 </header>
 
+<img class="prev arrow" src="{{ STATIC_URL }}img/arrow_prev.png"/>
+<img class="next arrow" src="{{ STATIC_URL }}img/arrow_next.png"/>
+
+<div id="artworks">
 {% for artwork in gallery %}
     <div class="artwork" style="background-image: url({{ MEDIA_URL }}{{ artwork.image }})">
         <div class="plaque">
@@ -25,6 +29,7 @@
         {% endif %}
     </div>
 {% endfor %}
+</div>
 
 <footer>
     <div id="places">

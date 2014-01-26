@@ -59,6 +59,27 @@ footer {
     }
 }
 
+.arrow {
+    position: absolute;
+    top: 40%;
+    background-color: black;
+    padding: 15px 10px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.75;
+    }
+
+    &.prev {
+        left: 0;
+    }
+
+    &.next {
+        right: 0;
+    }
+}
+
 .artwork {
     position: absolute;
     top: 0; left: 0;
@@ -77,6 +98,7 @@ footer {
         display: inline-block;
         padding: 2em;
         font-family: 'Crimson Text', serif;
+        max-width: 70%;
 
         h1 {
             margin: 0;
@@ -109,18 +131,18 @@ footer {
     text-decoration: none;
     font-weight: bold;
     border: 1px solid rgba(255,255,255, 0.75);
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0,0,0, 0.75);
     padding: 0.25em 0.5em;
     font-family: $helvetica;
     border-radius: 4px;
 
     &:hover {
-        background-color: rgba(0,0,0, 0.75);
+        background-color: rgba(0,0,0, 0.85);
         border-color: rgba(255,255,255, 1);
     }
 
     &:active {
-        background-color: black;
+        background-color: rgba(0,0,0, 0.95);
     }
 
     &.view-item {
