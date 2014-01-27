@@ -50,6 +50,10 @@ footer {
   cursor: pointer; }
   .arrow:hover {
     opacity: 0.75; }
+  .arrow.disabled {
+    cursor: default; }
+    .arrow.disabled:hover {
+      opacity: 0.5; }
   .arrow.prev {
     left: 0; }
   .arrow.next {

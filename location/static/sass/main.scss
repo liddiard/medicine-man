@@ -71,6 +71,14 @@ footer {
         opacity: 0.75;
     }
 
+    &.disabled {
+        cursor: default;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
     &.prev {
         left: 0;
     }
