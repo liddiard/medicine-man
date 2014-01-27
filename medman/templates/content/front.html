@@ -1,4 +1,5 @@
 {% extends "content/base.html" %}
+{% load shortcodes %}
 
 {% block title %}{{ site.domain.name }}{% endblock %}
 
@@ -9,7 +10,7 @@
 </header>
 
 <article>
-{{ site.body|safe }}
+{{ site.body|safe|shortcode }}
 </article>
 
 <footer>
