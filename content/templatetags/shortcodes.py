@@ -2,7 +2,7 @@ import re
 
 from django import template
 from django.template.defaultfilters import stringfilter
-from django.conf.settings import MEDIA_URL
+from django.conf import settings
 
 from content.models import Image
 
@@ -16,6 +16,7 @@ def shortcode(value):
 
 def imgHTML(match):
     try:
+        print match.group('pk')
         image = Image.objects.get(pk=match.group('pk'))
     except Image.DoesNotExist:
         return "" # IDEA: don't fail silently?
@@ -25,16 +26,10 @@ def imgHTML(match):
     # Would prevent users from assigning any css class they want.
     display = given_display if given_display is not None else "fullwidth"
     params = {'display': display,
-              'MEDIA_URL': MEDIA_URL,
+              'MEDIA_URL': settings.MEDIA_URL,
               'filename': image.image,
-              'author': image.author,
               'caption': image.caption
     }
-    organization = image.author.organization
-    if organization:
-        params['organization'] = " / %s" % organization
-    else:
-        params['organization'] = ""
     return '''
            <figure class="%(display)s">
                <img src="%(MEDIA_URL)s%(filename)s"/>
