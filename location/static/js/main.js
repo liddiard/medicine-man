@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.artwork, .plaque, .view-item').hide();
     var first = $('.artwork').first();
-    var current = $('.artwork:visible') // we need to give showPiece an empty selector
+    var current = $('.artwork:visible'); // we need to give showPiece an empty selector
     rotator_intervalid = showPiece(current, first, true);
 });
 
