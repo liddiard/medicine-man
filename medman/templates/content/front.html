@@ -1,12 +1,15 @@
 {% extends "content/base.html" %}
 
+{% block title %}{{ site.domain.name }}{% endblock %}
+
 {% block content %}
 
 <header>
-    <h1>Hello content</h1>
+    <h1>{{ site.domain.name }}</h1>
 </header>
 
 <article>
+{{ site.body|safe }}
 </article>
 
 <footer>
