@@ -1,10 +1,11 @@
 from .base import *
+import os
 import dj_database_url
 
 DEBUG = False
 
 DATABASES = {
-        'default': dj_database_url.config()
+    'default': dj_database_url.config()
 }
 
 AWS_STORAGE_BUCKET_NAME = "medicine-man"
