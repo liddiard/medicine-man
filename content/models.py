@@ -15,4 +15,4 @@ class Image(models.Model):
     caption = models.TextField(blank=True)
 
     def __unicode__(self):
-        return self.image
+        return unicode(self.image)
