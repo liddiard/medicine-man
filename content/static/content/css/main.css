@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: 'Crimson Text', serif; }
+
+header {
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 1em 0; }
+  header h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 300%; }
+
+article {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px; }
