@@ -10,17 +10,23 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
+from django.core.exceptions import ImproperlyConfigured 
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-AWS_STORAGE_BUCKET_NAME = 'medicine-man'
-S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+msg ="Set the %s environment variable" 
+def get_env_variable(var_name): 
+    try: 
+        return os.environ[var_name] 
+    except KeyError: 
+        error_msg = msg % var_name 
+        raise ImproperlyConfigured(error_msg)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z&jfq#7z&26zj+6jyr5efo3a^6z+_16xon=xk*9-_(t9ok$l=('
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -28,10 +34,6 @@ DEBUG = False
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'medicine-man.herokuapp.com']
-
-DATABASES = {
-    'default': dj_database_url.config()
-}
 
 # Application definition
 
@@ -102,5 +104,13 @@ USE_TZ = True
 TEMPLATE_DIRS = (
     BASE_DIR+'/templates',
 )
+
+AWS_STORAGE_BUCKET_NAME = "medicine-man"
+AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
+AWS_PRELOAD_METADATA = True
+DEFAULT_FILE_STORAGE = 'medman.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'medman.s3utils.StaticRootS3BotoStorage'
+S3_URL = "http://%s.s3.amazonaws.com/" % AWS_STORAGE_BUCKET_NAME
 
 STATIC_URL = S3_URL
