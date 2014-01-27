@@ -12,6 +12,7 @@ class Site(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
+    caption = models.TextField(blank=True)
 
     def __unicode__(self):
         return self.image
