@@ -1,0 +1,114 @@
+body {
+  font-family: "Helevetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: black;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  text-shadow: 1px 1px black; }
+
+a {
+  color: inherit; }
+
+header {
+  overflow: hidden;
+  width: 100%; }
+  header h1 {
+    margin: 0.1em 0.3em;
+    font-size: 4em;
+    font-weight: normal;
+    display: inline-block;
+    text-shadow: 1px 2px 4px black; }
+  header #advert {
+    display: inline-block;
+    float: right; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  box-sizing: border-box; }
+  footer #refer {
+    float: right;
+    text-decoration: none; }
+    footer #refer span {
+      display: block;
+      text-align: right; }
+    footer #refer .pretext {
+      margin-bottom: 0.25em; }
+    footer #refer .company {
+      font-size: 2em; }
+
+.arrow {
+  position: absolute;
+  top: 40%;
+  background-color: black;
+  padding: 15px 10px;
+  opacity: 0.5;
+  cursor: pointer; }
+  .arrow:hover {
+    opacity: 0.75; }
+  .arrow.disabled {
+    cursor: default; }
+    .arrow.disabled:hover {
+      opacity: 0.5; }
+  .arrow.prev {
+    left: 0; }
+  .arrow.next {
+    right: 0; }
+
+.artwork {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  z-index: -1; }
+  .artwork .plaque {
+    margin-top: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 2em;
+    font-family: 'Crimson Text', serif;
+    max-width: 70%; }
+    .artwork .plaque h1 {
+      margin: 0; }
+    .artwork .plaque .featured-item {
+      font-style: italic;
+      padding-bottom: 0.75em;
+      border-bottom: 1px solid;
+      margin-bottom: 0.5em; }
+    .artwork .plaque .artist {
+      font-size: 1.5em; }
+    .artwork .plaque .location {
+      font-family: "Helevetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      border-top: 1px solid;
+      padding-top: 1.25em;
+      margin-top: 1em;
+      font-size: 0.9em; }
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0.25em 0.5em;
+  font-family: "Helevetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 4px; }
+  .btn:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-color: white; }
+  .btn:active {
+    background-color: rgba(0, 0, 0, 0.95); }
+  .btn.view-item {
+    margin-top: 1em; }
