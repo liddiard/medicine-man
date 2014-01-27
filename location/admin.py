@@ -3,14 +3,14 @@ from .models import Site, Artwork
 
 
 class SiteAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('domain', 'area')
 
 
 admin.site.register(Site, SiteAdmin)
 
 
 class ArtworkAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'artist', 'url')
 
 
 admin.site.register(Artwork, ArtworkAdmin)

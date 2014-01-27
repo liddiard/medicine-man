@@ -3,7 +3,7 @@ from .models import Domain
 
 
 class DomainAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'url', 'kind')
 
 
 admin.site.register(Domain, DomainAdmin)

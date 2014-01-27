@@ -3,14 +3,16 @@ from .models import Site, Image
 
 
 class SiteAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('domain',)
 
 
 admin.site.register(Site, SiteAdmin)
 
 
 class ImageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'image', 'caption')
+    list_display_links = ('id', 'image')
+    readonly_fields = ('id',)
 
 
 admin.site.register(Image, ImageAdmin)
