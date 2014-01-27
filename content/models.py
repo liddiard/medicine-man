@@ -7,8 +7,11 @@ class Site(models.Model):
     body = HTMLField()
 
     def __unicode__(self):
-        return self.domain
+        return self.domain.name
 
 
 class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
+
+    def __unicode__(self):
+        return self.image
