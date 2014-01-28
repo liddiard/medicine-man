@@ -4,6 +4,13 @@ body {
   padding: 0;
   font-family: 'Crimson Text', serif; }
 
+a {
+  color: inherit; }
+
+p {
+  line-height: 1.428;
+  font-size: 1.1em; }
+
 header {
   color: white;
   background-color: black;
@@ -18,3 +25,8 @@ article {
   max-width: 640px;
   margin: 0 auto;
   padding: 10px; }
+
+figure {
+  margin: 0; }
+  figure figcaption {
+    color: #444; }
