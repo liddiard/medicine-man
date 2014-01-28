@@ -2,7 +2,9 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  font-family: 'Crimson Text', serif; }
+  font-family: 'Crimson Text', serif;
+  background-image: url(../img/ricepaper2.png);
+  text-shadow: 1px 1px white; }
 
 a {
   color: inherit; }
@@ -15,7 +17,9 @@ header {
   color: white;
   background-color: black;
   text-align: center;
-  padding: 1em 0; }
+  padding: 1em 0;
+  margin-bottom: 1em;
+  text-shadow: none; }
   header h1 {
     margin: 0;
     font-weight: normal;
@@ -27,6 +31,41 @@ article {
   padding: 10px; }
 
 figure {
-  margin: 0; }
+  position: relative;
+  margin: 0 0 0.5em 0; }
+  figure img {
+    display: block;
+    width: 100%; }
   figure figcaption {
+    margin-top: 0.2em;
     color: #444; }
+  figure.fullwidth {
+    margin: 2em 0; }
+  figure.right, figure.left {
+    width: 360px; }
+  figure.right {
+    float: right;
+    left: 138px;
+    margin-left: -110px; }
+  figure.left {
+    float: left;
+    right: 138px;
+    margin-right: -110px; }
+
+footer {
+  clear: both;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #300;
+  color: white;
+  text-align: center;
+  padding: 2em 0;
+  text-shadow: 1px 1px 3px black;
+  margin-top: 2em; }
+  footer #refer {
+    text-decoration: none; }
+    footer #refer span {
+      display: block; }
+    footer #refer .pretext {
+      margin-bottom: 0.25em; }
+    footer #refer .company {
+      font-size: 2em; }
