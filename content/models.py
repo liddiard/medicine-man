@@ -13,6 +13,10 @@ class Site(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
+    image.help_text = '''
+        For best results, images should be greater than or equal to 640  
+        pixels wide. The image will be automatically resized on upload.
+    '''
     caption = models.TextField(blank=True)
 
     __original_image = None
