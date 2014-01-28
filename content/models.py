@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
+from PIL import Image as PyImage
 
 
 class Site(models.Model):
@@ -13,6 +14,23 @@ class Site(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
     caption = models.TextField(blank=True)
+
+    __original_image = None
+
+    def __init__(self, *args, **kwargs):
+        super(Image, self).__init__(*args, **kwargs)
+        self.__original_image = self.image
+
+    def save(self, force_insert=False, force_update=False, *args, **kwargs):
+        if self.image != self.__original_image:
+            size = 640, 1280
+            super(Image, self).save(force_insert, force_update, *args, **kwargs)
+            image = PyImage.open(self.image)
+            image.thumbnail(size, PyImage.ANTIALIAS)
+            image.save(self.image.path)
+        else:
+            super(Image, self).save(force_insert, force_update, *args, **kwargs)
+        self.__original_image = self.image
 
     def __unicode__(self):
         return unicode(self.image)
