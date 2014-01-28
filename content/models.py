@@ -6,6 +6,15 @@ from PIL import Image as PyImage
 class Site(models.Model):
     domain = models.OneToOneField('router.Domain', related_name='content')
     body = HTMLField()
+    body.help_text = '''
+        To embed an image: <strong>[img{id}]</strong> (e.g. [img2]). By 
+        default, images display full width. To float an image to the right
+        or left of the text, add "left" or "right" (e.g. 
+        [img35 <strong>right</strong>]).<br/>
+        To embed a youtube video: 
+        <strong>[youtube]{youtube share link}[/youtube]</strong> (e.g. 
+        [youtube]http://youtu.be/VU_2R1rjbD8[/youtube]).
+    '''
 
     def __unicode__(self):
         return self.domain.name
@@ -14,8 +23,8 @@ class Site(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
     image.help_text = '''
-        For best results, images should be greater than or equal to 640  
-        pixels wide. The image will be automatically resized on upload.
+        For best display, images should be greater than or equal to 640  
+        pixels wide. Images are automatically resized on upload.
     '''
     caption = models.TextField(blank=True)
 

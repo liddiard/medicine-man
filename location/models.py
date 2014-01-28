@@ -16,7 +16,7 @@ class Site(models.Model):
 class Artwork(models.Model):
     image = models.ImageField(upload_to='location_artwork')
     image.help_text = '''
-        For best results, artwork should be between 1280x720 and 1920x1080 
+        For best display, artwork should be between 1280x720 and 1920x1080 
         pixels.
     '''
     title = models.CharField(max_length=64)
