@@ -1,7 +1,7 @@
 from django.db import models
 
 class Domain(models.Model):
-    url = models.CharField(max_length=64)
+    url = models.CharField(max_length=64, unique=True)
     url.help_text = "Actual name of this domain (e.g. bostonartgallery.com)"
     name = models.CharField(max_length=64)
     name.help_text = "Name to display on the site (e.g. Boston Art Gallery)"
