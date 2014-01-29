@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.generic import TemplateView
 
+from router.models import Domain
 from .models import Site, Artwork
 
 
@@ -8,9 +9,21 @@ class FrontView(TemplateView):
 
     template_name = "location/front.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(FrontView, self).get_context_data(**kwargs)
+    def get(self, request, **kwargs):
         domain = self.kwargs['domain']
-        context['site'] = Site.objects.get(domain=domain)
+        context = self.get_context_data()
+        try:
+            context['site'] = Site.objects.get(domain=domain)
+        except Site.DoesNotExist:
+            domain_name = Domain.objects.get(id=domain)
+            return self.site_dne_error(domain_name)
         context['gallery'] = Artwork.objects.order_by('?')
-        return context
+        return self.render_to_response(context)
+
+    def site_dne_error(self, domain_name):
+        error_msg = '''
+            A location Site object matching this domain does not exist. If 
+            you're the administrator of this site, you can fix this by adding 
+            a location Site with "%s" as the domain.
+        '''
+        return HttpResponse(error_msg % domain_name, content_type='text/plain')
