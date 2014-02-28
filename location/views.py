@@ -1,3 +1,6 @@
+import urllib2
+import json
+
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 
@@ -27,3 +30,21 @@ class FrontView(TemplateView):
             a location Site with "%s" as the domain.
         '''
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
+
+def textToCoordinant(location):
+    latitude = ""
+    longitude = ""
+    locationSearch = location
+    locationUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false' % locationSearch
+    #print locationUrl
+    response = urllib2.urlopen(locationUrl)
+    data = json.load(response)
+    latitude = data["results"][0]["geometry"]["location"]["lat"]
+    longitude = data["results"][0]["geometry"]["location"]["lng"]
+    return latitude, longitude
+
+#print textToCoordinant('Boston+MA')[0]
+#print textToCoordinant('Boston+MA')[1]
+
+def coordinantToNearby(latitude, longitude):
+    location = "%s+%s" %latitude, longitude
