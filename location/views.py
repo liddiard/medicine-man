@@ -43,8 +43,13 @@ def textToCoordinant(location):
     longitude = data["results"][0]["geometry"]["location"]["lng"]
     return latitude, longitude
 
-#print textToCoordinant('Boston+MA')[0]
-#print textToCoordinant('Boston+MA')[1]
-
 def coordinantToNearby(latitude, longitude):
-    location = "%s+%s" %latitude, longitude
+    location = "%s,%s" %(latitude, longitude)
+    types = 'art_gallery'
+    nearbyUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%s&radius=50000&types=%s&sensor=false&key=AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o' %(location, types)
+    response = urllib2.urlopen(nearbyUrl)
+    data = json.load(response)
+    print data
+
+
+#coordinantToNearby(textToCoordinant('Boston+MA')[0],textToCoordinant('Boston+MA')[1])
