@@ -5,7 +5,9 @@
 {% block content %}
 
 <script>
-    window.places = {{ places|safe }}.results;
+{% for place in places %}
+    {{ place.name }}
+{% endfor %}
 </script>
 
 <header>

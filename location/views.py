@@ -26,7 +26,7 @@ class FrontView(TemplateView):
         else:
             context['site'] = site
         context['gallery'] = Artwork.objects.order_by('?')
-        context['places'] = string_to_nearby(site.area)
+        context['places'] = self.format_places(site.area)
         return self.render_to_response(context)
 
     def site_dne_error(self, domain_name):
@@ -37,10 +37,27 @@ class FrontView(TemplateView):
         '''
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
 
+    def format_places(self, area):
+        places_data = string_to_nearby(area)
+        places_results = places_data['results']
+        places = []
+        for place in places_results:
+            places.append({
+                'name': place['name'],
+                'open': place.get('opening_hours', 'open_now'),
+                'address': place['vicinity'],
+                'rating': place.get('rating'),
+                'coordinates': (place['geometry']['location']['lat'], 
+                                place['geometry']['location']['lng'])
+            })
+        return places
+        
+
 
 # utility functions
 
 def string_to_coordinant(area):
+    '''takes a location string and returns a lat/long tuple'''
     area_clean = urllib.quote_plus(area)
     q = ('http://maps.googleapis.com/maps/api/geocode/json?address=%s'
          '&sensor=false') % area_clean
@@ -52,13 +69,15 @@ def string_to_coordinant(area):
     return latitude, longitude
 
 def coordinant_to_nearby(coordinant):
+    '''takes a tuple of lat/long coords and returns a dict of nearby places'''
     point = "%s,%s" % coordinant
     kind = "art_gallery"
     q = ('https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
          'location=%s&radius=50000&types=%s&sensor=false'
          '&key=AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o') % (point, kind)
     response = urllib2.urlopen(q)
-    return response.read()
+    data = json.load(response)
+    return data
 
 def string_to_nearby(area):
     return coordinant_to_nearby(string_to_coordinant(area))
