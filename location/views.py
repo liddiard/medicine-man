@@ -26,8 +26,7 @@ class FrontView(TemplateView):
         else:
             context['site'] = site
         context['gallery'] = Artwork.objects.order_by('?')
-        coordinant = string_to_coordinant(site.area)
-        coordinant_to_nearby(coordinant)
+        context['places'] = string_to_nearby(site.area)
         return self.render_to_response(context)
 
     def site_dne_error(self, domain_name):
@@ -43,7 +42,9 @@ class FrontView(TemplateView):
 
 def string_to_coordinant(area):
     area_clean = urllib.quote_plus(area)
-    q = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false" % area_clean
+    q = ('http://maps.googleapis.com/maps/api/geocode/json?address=%s'
+         '&sensor=false') % area_clean
+    print q
     response = urllib2.urlopen(q)
     data = json.load(response)
     latitude = data['results'][0]['geometry']['location']['lat']
@@ -51,10 +52,13 @@ def string_to_coordinant(area):
     return latitude, longitude
 
 def coordinant_to_nearby(coordinant):
-    point = "%s,%s" % (coordinant[0], coordinant[1])
+    point = "%s,%s" % coordinant
     kind = "art_gallery"
-    q = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%s&radius=50000&types=%s&sensor=false&key=AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o" % (point, kind)
+    q = ('https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+         'location=%s&radius=50000&types=%s&sensor=false'
+         '&key=AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o') % (point, kind)
     response = urllib2.urlopen(q)
-    data = json.load(response)
-    print data
+    return response.read()
 
+def string_to_nearby(area):
+    return coordinant_to_nearby(string_to_coordinant(area))
