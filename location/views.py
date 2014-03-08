@@ -38,17 +38,21 @@ class FrontView(TemplateView):
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
 
     def format_places(self, area):
+        limit = 3
         places_data = string_to_nearby(area)
         places_results = places_data['results']
         places = []
-        for place in places_results:
+        for place in places_results[:limit]:
+            photo = reference_to_photo(place['photos'][0]['photo_reference'])
+            places.append(photo)
             places.append({
                 'name': place['name'],
                 'open': place.get('opening_hours', 'open_now'),
                 'address': place['vicinity'],
                 'rating': place.get('rating'),
                 'coordinates': (place['geometry']['location']['lat'], 
-                                place['geometry']['location']['lng'])
+                                place['geometry']['location']['lng']),
+                'photo': photo
             })
         return places
         
@@ -81,3 +85,6 @@ def coordinant_to_nearby(coordinant):
 
 def string_to_nearby(area):
     return coordinant_to_nearby(string_to_coordinant(area))
+
+def reference_to_photo(ref):
+    pass # see https://developers.google.com/places/documentation/photos
