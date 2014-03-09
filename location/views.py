@@ -2,6 +2,7 @@ import json
 import urllib
 import urllib2
 
+from django.conf import settings
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 
@@ -52,11 +53,10 @@ class FrontView(TemplateView):
                 'rating': place.get('rating'),
                 'coordinates': (place['geometry']['location']['lat'], 
                                 place['geometry']['location']['lng']),
-                'photo': photo
+                'photo': photo.url
             })
         return places
         
-
 
 # utility functions
 
@@ -78,7 +78,7 @@ def coordinant_to_nearby(coordinant):
     kind = "art_gallery"
     q = ('https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
          'location=%s&radius=50000&types=%s&sensor=false'
-         '&key=AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o') % (point, kind)
+         '&key=%s') % (point, kind, settings.GOOGLE_API_KEY)
     response = urllib2.urlopen(q)
     data = json.load(response)
     return data
@@ -87,4 +87,8 @@ def string_to_nearby(area):
     return coordinant_to_nearby(string_to_coordinant(area))
 
 def reference_to_photo(ref):
-    pass # see https://developers.google.com/places/documentation/photos
+    q = ('https://maps.googleapis.com/maps/api/place/photo?maxwidth=200'
+         '&photoreference=%s&sensor=false&key=%s') % (ref, 
+                                                      settings.GOOGLE_API_KEY)
+    response = urllib2.urlopen(q)
+    return response
