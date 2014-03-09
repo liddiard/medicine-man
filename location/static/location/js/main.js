@@ -3,8 +3,15 @@ $(document).ready(function(){
     var first = $('.artwork').first();
     var current = $('.artwork:visible'); // we need to give showPiece an empty selector
     rotator_intervalid = showPiece(current, first, true);
-    $('.place').click(function(){
-        $(this).find('.popup').show();
+
+    /* popups */
+    $('body').click(function(){
+        $('.popup').hide();
+    });
+    $('.place').click(function(event){
+        event.stopPropagation();
+        $('.popup').hide();
+        $(this).find('.popup').toggle();
     });
 });
 
