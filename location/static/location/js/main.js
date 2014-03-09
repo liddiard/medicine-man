@@ -52,3 +52,17 @@ function showPiece(prev, current, forward) {
 
     return setInterval(function(){ nextSlide() }, 10000);
 }
+
+function ajaxGet(params, endpoint, callback_success) {
+    $.ajax({
+        type: "GET",
+        url: endpoint,
+        data: params,
+        crossDomain: true,
+        success: callback_success,
+        error: function(xhr, textStatus, errorThrown) {
+            if (xhr.status != 0)
+                console.error('Oh no! Something went wrong. Please report this error: \n'+errorThrown+xhr.status+xhr.responseText);
+        }
+    }); 
+}

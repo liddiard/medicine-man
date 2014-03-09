@@ -104,7 +104,6 @@ def string_to_coordinant(area):
     area_clean = urllib.quote_plus(area)
     q = ('http://maps.googleapis.com/maps/api/geocode/json?address=%s'
          '&sensor=false') % area_clean
-    print q
     response = urllib2.urlopen(q)
     data = json.load(response)
     latitude = data['results'][0]['geometry']['location']['lat']
@@ -131,6 +130,3 @@ def reference_to_photo(ref):
                                                       settings.GOOGLE_API_KEY)
     response = urllib2.urlopen(q)
     return response
-
-def reference_to_detail(ref):
-    pass
