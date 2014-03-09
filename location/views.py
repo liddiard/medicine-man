@@ -46,8 +46,8 @@ class FrontView(TemplateView):
         for place in places_results[:limit]:
             photo = reference_to_photo(place['photos'][0]['photo_reference'])
             places.append({
+                'reference': place['reference'],
                 'name': place['name'],
-                'open': place.get('open_now'), # TODO: currently broken
                 'address': place['vicinity'],
                 'rating': place.get('rating'),
                 'coordinates': (place['geometry']['location']['lat'], 
@@ -55,7 +55,43 @@ class FrontView(TemplateView):
                 'photo': photo.url
             })
         return places
-        
+
+
+# abstract base classes
+
+class AjaxView(View):
+
+    def json_response(self, **kwargs):
+        return HttpResponse(json.dumps(kwargs), content_type="application/json")
+
+    def success(self, **kwargs):
+        return self.json_response(result=0, **kwargs)
+
+    def error(self, error, message):
+        return self.json_response(result=1, error=error, message=message) 
+
+    def key_error(self, message):
+        return self.error("KeyError", message)
+
+
+# api
+
+class PlaceDetailView(AjaxView):
+
+    def get(self, request):
+        reference = request.GET.get('reference')
+        if reference is None:
+            return self.key_error('Required key "reference" not found in '
+                                  'request.')
+        q = ('https://maps.googleapis.com/maps/api/place/details/json?'
+             'reference=%s&sensor=false&key=%s') % (reference, 
+                                                    settings.GOOGLE_API_KEY)
+        response = urllib2.urlopen(q)
+        result = json.loads(response)['result']
+        detail = {
+            'address': data['result']['vicinity'],
+        }
+
 
 # utility functions
 
