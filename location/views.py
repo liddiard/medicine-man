@@ -4,7 +4,7 @@ import urllib2
 
 from django.conf import settings
 from django.http import HttpResponse
-from django.views.generic import TemplateView
+from django.views.generic import View, TemplateView
 
 from router.models import Domain
 from .models import Site, Artwork
