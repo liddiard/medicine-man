@@ -199,20 +199,29 @@ footer {
     background-color: white;
     color: black;
     text-shadow: none;
-    width: 280px;
+    width: 300px;
     padding: 1em;
     box-shadow: 0 2px 10px rgba(0,0,0, 0.5);
     cursor: default;
+    box-sizing: border-box;
+    margin-left: -$PLACE_WIDTH / 4;
 
     &:after {
         content: "";
         position: absolute;
-        width: 0;
-        height: 0;
+        width: 0; height: 0;
         border-width: $TRIANGLE_SIZE;
         border-style: solid;
-        border-color: #FFFFFF transparent transparent transparent;
+        border-color: white transparent transparent transparent;
         bottom: -20px;
-        left: ($PLACE_WIDTH / 2) - $TRIANGLE_SIZE;
+        left: (($PLACE_WIDTH / 4) * 3) - $TRIANGLE_SIZE;
+    }
+
+    .place:first-child & {
+        margin-left: 0;
+
+        &:after {
+            left: ($PLACE_WIDTH / 2) - $TRIANGLE_SIZE;
+        }
     }
 }
