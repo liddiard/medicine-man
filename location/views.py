@@ -91,3 +91,6 @@ def reference_to_photo(ref):
                                                       settings.GOOGLE_API_KEY)
     response = urllib2.urlopen(q)
     return response
+
+def reference_to_detail(ref):
+    pass

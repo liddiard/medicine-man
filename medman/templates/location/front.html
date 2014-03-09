@@ -37,6 +37,10 @@
 <footer>
     <div id="places">
     {% for place in places %}
+        <div class="popup">
+            <h2>{{ place.name }}</h2>
+            <span class="address">{{ place.address }}</p>
+        </div>
         <div class="place" style="background-image: url({{ place.photo }})">
             <div class="mask">
                 <span>{{ place.name }}</span>
