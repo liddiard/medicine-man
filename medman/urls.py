@@ -16,6 +16,9 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', route, name='main'),
 
+    url(r'^api/location/place_detail/$', 
+        location_views.PlaceDetailView.as_view(), name='place_detail'),
+
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
