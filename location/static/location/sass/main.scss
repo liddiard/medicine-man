@@ -154,6 +154,10 @@ footer {
     margin: 0 5px;
     cursor: pointer;
 
+    &.active {
+        box-shadow: 0 0 0 2px white;
+    }
+
     & > .mask {
         width: 100%; height: 100%;
         @include vertical_gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
@@ -194,7 +198,7 @@ footer {
 .popup {
     $TRIANGLE_SIZE: 10px;
     position: absolute;
-    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE;
+    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE + 2;
     display: none;
     background-color: white;
     color: black;
@@ -223,5 +227,9 @@ footer {
         &:after {
             left: ($PLACE_WIDTH / 2) - $TRIANGLE_SIZE;
         }
+    }
+
+    .address {
+        color: gray;
     }
 }

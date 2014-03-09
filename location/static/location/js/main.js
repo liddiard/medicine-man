@@ -7,11 +7,14 @@ $(document).ready(function(){
     /* popups */
     $('body').click(function(){
         $('.popup').hide();
+        $('.place').removeClass('active');
     });
     $('.place').click(function(event){
         event.stopPropagation();
+        $('.place').removeClass('active');
         $('.popup').hide();
         $(this).find('.popup').toggle();
+        $(this).toggleClass('active');
     });
 });
 
