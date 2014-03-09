@@ -96,6 +96,36 @@ footer {
       margin-top: 1em;
       font-size: 0.9em; }
 
+.place {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background-position: center;
+  float: left;
+  margin: 0 5px;
+  cursor: pointer; }
+  .place > .mask {
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 1050%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(1050%, rgba(0, 0, 0, 0.7)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 1050%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 1050%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 1050%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 1050%);
+    /* W3C */ }
+    .place > .mask > span {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin: 5px 10px;
+      font-weight: bold; }
+
 .btn {
   display: inline-block;
   text-decoration: none;

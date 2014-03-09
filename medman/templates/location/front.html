@@ -4,6 +4,10 @@
 
 {% block content %}
 
+<script>
+    {{ places }}
+</script>
+
 <header>
     <img id="advert" src="http://i.imgur.com/69MjkMj.png"/>
     <h1>{{ site.domain.name }}</h1>
@@ -32,9 +36,13 @@
 
 <footer>
     <div id="places">
-        {% for place in places %}
-            <img src="{{ place.photo }}"/>
-        {% endfor %}
+    {% for place in places %}
+        <div class="place" style="background-image: url({{ place.photo }})">
+            <div class="mask">
+                <span>{{ place.name }}</span>
+            </div>
+        </div>
+    {% endfor %}
     </div>
     <a id="refer" href="http://medicinemangallery.com/">
         <span class="pretext">Brought to you by</span>

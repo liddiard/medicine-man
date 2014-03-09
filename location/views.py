@@ -39,16 +39,15 @@ class FrontView(TemplateView):
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
 
     def format_places(self, area):
-        limit = 3
+        limit = 4
         places_data = string_to_nearby(area)
         places_results = places_data['results']
         places = []
         for place in places_results[:limit]:
             photo = reference_to_photo(place['photos'][0]['photo_reference'])
-            places.append(photo)
             places.append({
                 'name': place['name'],
-                'open': place.get('opening_hours', 'open_now'),
+                'open': place.get('open_now'), # TODO: currently broken
                 'address': place['vicinity'],
                 'rating': place.get('rating'),
                 'coordinates': (place['geometry']['location']['lat'], 
