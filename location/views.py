@@ -89,8 +89,12 @@ class PlaceDetailView(AjaxView):
         response = urllib2.urlopen(q)
         result = json.loads(response)['result']
         detail = {
-            'address': data['result']['vicinity'],
+            'address': data('vicinity'),
+            'phone': data.get('formatted_phone_number'),
+            'website': data.get('website'),
+            'open_hours': data.get('open_hours')
         }
+        return self.success(detail=detail)
 
 
 # utility functions
