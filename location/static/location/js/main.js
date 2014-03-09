@@ -3,6 +3,9 @@ $(document).ready(function(){
     var first = $('.artwork').first();
     var current = $('.artwork:visible'); // we need to give showPiece an empty selector
     rotator_intervalid = showPiece(current, first, true);
+    $('.place').click(function(){
+        $(this).find('.popup').show();
+    });
 });
 
 
@@ -52,6 +55,9 @@ function showPiece(prev, current, forward) {
 
     return setInterval(function(){ nextSlide() }, 10000);
 }
+
+
+/* utility functions */
 
 function ajaxGet(params, endpoint, callback_success) {
     $.ajax({

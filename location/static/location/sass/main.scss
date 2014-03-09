@@ -1,4 +1,6 @@
 $helvetica: 'Helevetica Neue', Helvetica, Arial, sans-serif;
+$PLACE_WIDTH: 200px;
+$PLACE_HEIGHT: 100px;
 
 @mixin vertical_gradient($start_color, $end_color) {
     background: -moz-linear-gradient(top,  $start_color 50%, $end_color 1050%); /* FF3.6+ */
@@ -145,8 +147,8 @@ footer {
 
 .place {
     position: relative;
-    width: 200px;
-    height: 100px;
+    width: $PLACE_WIDTH;
+    height: $PLACE_HEIGHT;
     background-position: center;
     float: left;
     margin: 0 5px;
@@ -186,5 +188,30 @@ footer {
 
     &.view-item {
         margin-top: 1em;
+    }
+}
+
+.popup {
+    $TRIANGLE_SIZE: 10px;
+    position: absolute;
+    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE;
+    display: none;
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    width: 280px;
+    padding: 1em;
+    box-shadow: 0 2px 10px rgba(0,0,0, 0.5);
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-width: $TRIANGLE_SIZE;
+        border-style: solid;
+        border-color: #FFFFFF transparent transparent transparent;
+        bottom: -20px;
+        left: ($PLACE_WIDTH / 2) - $TRIANGLE_SIZE;
     }
 }
