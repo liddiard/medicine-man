@@ -168,6 +168,8 @@ footer {
     border-color: white transparent transparent transparent;
     bottom: -20px;
     left: 140px; }
+  .popup h2 {
+    margin: 0.1em 0; }
   .popup a {
     color: #0066cc;
     text-decoration: none; }
@@ -179,6 +181,8 @@ footer {
       left: 90px; }
   .popup .address {
     color: gray; }
+  .popup .separator {
+    color: gray; }
   .popup .rating {
     color: #f90;
     font-size: 1.1em; }
@@ -189,5 +193,5 @@ footer {
       display: block;
       float: left; }
   .popup .map {
-    margin-top: 0.5em;
+    margin-top: 1em;
     display: block; }

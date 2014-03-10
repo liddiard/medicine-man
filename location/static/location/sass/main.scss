@@ -221,6 +221,10 @@ footer {
         left: (($PLACE_WIDTH / 4) * 3) - $TRIANGLE_SIZE;
     }
 
+    h2 {
+        margin: 0.1em 0;
+    }
+
     a {
         $LINK_COLOR: #06c;
         color: $LINK_COLOR;
@@ -243,6 +247,10 @@ footer {
         color: gray;
     }
 
+    .separator {
+        color: gray;
+    }
+
     .rating {
         color: #f90;
         font-size: 1.1em;
@@ -259,7 +267,7 @@ footer {
     }
 
     .map {
-        margin-top: 0.5em;
+        margin-top: 1em;
         display: block;
     }
 }
