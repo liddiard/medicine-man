@@ -188,3 +188,6 @@ footer {
       width: 20px;
       display: block;
       float: left; }
+  .popup .map {
+    margin-top: 0.5em;
+    display: block; }

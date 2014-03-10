@@ -80,6 +80,8 @@ function populatePlaceDetail(elem) {
             var detail = response.detail;
             elem.find('.phone').text(detail.phone);
             elem.find('.website').text(detail.host).prop('href', detail.url);
+            elem.find('.website').text(detail.host).prop('href', detail.url);
+            elem.find('.map').prop('src', detail.map);
             elem.data('fetched', true);
         }
     );

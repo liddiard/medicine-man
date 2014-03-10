@@ -89,6 +89,8 @@ class PlaceDetailView(AjaxView):
                                                     settings.GOOGLE_API_KEY)
         response = urllib2.urlopen(q).read()
         result = json.loads(response)['result']
+        map_image = coordinant_to_map(result['geometry']['location']['lat'], 
+                                      result['geometry']['location']['lng'])
         website = result.get('website')
         if website:
             host = urlparse(website).netloc
@@ -100,7 +102,8 @@ class PlaceDetailView(AjaxView):
             'url': website,
             'host': host,
             'rating': result.get('rating'),
-            'open_hours': result.get('open_hours')
+            'open_hours': result.get('open_hours'),
+            'map': map_image.url
         }
         return self.success(detail=detail)
 
@@ -137,4 +140,9 @@ def reference_to_photo(ref):
          '&photoreference=%s&sensor=false&key=%s') % (ref, 
                                                       settings.GOOGLE_API_KEY)
     response = urllib2.urlopen(q)
+    return response
+
+def coordinant_to_map(lat, lng):
+    q = ('http://maps.googleapis.com/maps/api/staticmap?markers=%s,%s'
+         '&size=268x179&zoom=13&sensor=false' % (lat, lng))
     return response
