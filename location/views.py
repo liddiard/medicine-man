@@ -93,14 +93,14 @@ class PlaceDetailView(AjaxView):
         lng = result['geometry']['location']['lng']
         map_image = coordinant_to_map(lat, lng)
         map_link = coordinant_to_map_link(lat, lng)
-        website = result.get('website')
+        website = result.get('website', '')
         if website:
             host = urlparse(website).netloc
         else:
-            host = None
+            host = ''
         detail = {
             'address': result.get('vicinity'),
-            'phone': result.get('formatted_phone_number'),
+            'phone': result.get('formatted_phone_number', ''),
             'url': website,
             'host': host,
             'rating': result.get('rating'),
