@@ -11,14 +11,16 @@ from router.views import route
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'medman.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    
+    # pages
     url(r'^$', route, name='main'),
 
+    # api
     url(r'^api/location/place_detail/$', 
         location_views.PlaceDetailView.as_view(), name='place_detail'),
-
+    
+    # django/third-party apps
+    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

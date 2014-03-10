@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.core.exceptions import ImproperlyConfigured 
+import django.conf.global_settings as DEFAULT_SETTINGS
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -38,6 +39,7 @@ ALLOWED_HOSTS = ['localhost', 'medicine-man.herokuapp.com']
 # Application definition
 
 DJANGO_APPS = (
+    'grappelli', # third-party, but has to go before django.contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +51,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'south',
     'storages',
-    'tinymce'
+    'tinymce',
 )
 
 LOCAL_APPS = (
@@ -105,9 +107,22 @@ TEMPLATE_DIRS = (
     BASE_DIR+'/templates',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request', # requrired for django-grappelli
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder', 
+        # required first by django-grappelli
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+)
+
 AWS_STORAGE_BUCKET_NAME = "medicine-man"
 AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_PRELOAD_METADATA = True
 
 GOOGLE_API_KEY = "AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o"
+
+# grappelli
+GRAPPELLI_ADMIN_TITLE = "Medicine Man Domain Management"
