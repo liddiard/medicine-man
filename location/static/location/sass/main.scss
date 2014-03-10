@@ -221,6 +221,16 @@ footer {
         left: (($PLACE_WIDTH / 4) * 3) - $TRIANGLE_SIZE;
     }
 
+    a {
+        $LINK_COLOR: #06c;
+        color: $LINK_COLOR;
+        text-decoration: none;
+
+        &:hover {
+            color: $LINK_COLOR - #222;
+        }
+    }
+
     .place:first-child & {
         margin-left: 0;
 
@@ -231,5 +241,20 @@ footer {
 
     .address {
         color: gray;
+    }
+
+    .rating {
+        color: #f90;
+        font-size: 1.1em;
+
+        .stars {
+            margin-right: 0.5em;
+        }
+
+        img {
+            width: 20px;
+            display: block;
+            float: left;
+        }
     }
 }

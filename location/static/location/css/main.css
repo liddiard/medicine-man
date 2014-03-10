@@ -168,9 +168,23 @@ footer {
     border-color: white transparent transparent transparent;
     bottom: -20px;
     left: 140px; }
+  .popup a {
+    color: #0066cc;
+    text-decoration: none; }
+    .popup a:hover {
+      color: #0044aa; }
   .place:first-child .popup {
     margin-left: 0; }
     .place:first-child .popup:after {
       left: 90px; }
   .popup .address {
     color: gray; }
+  .popup .rating {
+    color: #f90;
+    font-size: 1.1em; }
+    .popup .rating .stars {
+      margin-right: 0.5em; }
+    .popup .rating img {
+      width: 20px;
+      display: block;
+      float: left; }

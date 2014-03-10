@@ -38,10 +38,52 @@
                 <h2>{{ place.name }}</h2>
                 <p class="address">{{ place.address }}</p>
                 <p class="open"></p>
-                <p class="rating"></p>
+                <p class="rating">
+                    <span class="stars">
+                        {% if place.rating > 0.75 %}
+                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                        {% elif place.rating > 0.25 %}
+                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                        {% else %}
+                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                        {% endif %}
+
+                        {% if place.rating > 1.75 %}
+                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                        {% elif place.rating > 1.25 %}
+                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                        {% else %}
+                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                        {% endif %}
+
+                        {% if place.rating > 2.75 %}
+                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                        {% elif place.rating > 2.25 %}
+                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                        {% else %}
+                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                        {% endif %}
+
+                        {% if place.rating > 3.75 %}
+                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                        {% elif place.rating > 3.25 %}
+                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                        {% else %}
+                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                        {% endif %}
+
+                        {% if place.rating > 4.75 %}
+                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                        {% elif place.rating > 4.25 %}
+                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                        {% else %}
+                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                        {% endif %}
+                    </span>
+                    <span class="rating-number">{{ place.rating }}</span>
+                </p>
                 <p class="contact">
-                    <span class="phone"></span> | 
-                    <a class="website"></a>
+                    <span class="phone"></span>  |  <a class="website"></a>
                 </p>
             </div>
             <div class="mask">
