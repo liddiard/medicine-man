@@ -1,6 +1,7 @@
 import json
 import urllib
 import urllib2
+from urlparse import urlparse
 
 from django.conf import settings
 from django.http import HttpResponse
@@ -86,13 +87,20 @@ class PlaceDetailView(AjaxView):
         q = ('https://maps.googleapis.com/maps/api/place/details/json?'
              'reference=%s&sensor=false&key=%s') % (reference, 
                                                     settings.GOOGLE_API_KEY)
-        response = urllib2.urlopen(q)
+        response = urllib2.urlopen(q).read()
         result = json.loads(response)['result']
+        website = result.get('website')
+        if website:
+            host = urlparse(website).netloc
+        else:
+            host = None
         detail = {
-            'address': data('vicinity'),
-            'phone': data.get('formatted_phone_number'),
-            'website': data.get('website'),
-            'open_hours': data.get('open_hours')
+            'address': result.get('vicinity'),
+            'phone': result.get('formatted_phone_number'),
+            'url': website,
+            'host': host,
+            'rating': result.get('rating'),
+            'open_hours': result.get('open_hours')
         }
         return self.success(detail=detail)
 

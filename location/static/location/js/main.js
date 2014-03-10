@@ -13,8 +13,10 @@ $(document).ready(function(){
         event.stopPropagation();
         $('.place').removeClass('active');
         $('.popup').hide();
-        $(this).find('.popup').toggle();
+        var popup = $(this).find('.popup');
+        popup.toggle();
         $(this).toggleClass('active');
+        populatePlaceDetail(popup);
     });
 });
 
@@ -64,6 +66,20 @@ function showPiece(prev, current, forward) {
     }, 4000);
 
     return setInterval(function(){ nextSlide() }, 10000);
+}
+
+function populatePlaceDetail(elem) {
+    var reference = elem.data('reference');
+    ajaxGet(
+        {reference: reference}, 
+        '/api/location/place_detail/', 
+        function(response){ 
+            console.log(response);
+            var detail = response.detail;
+            elem.find('.phone').text(detail.phone);
+            elem.find('.website').text(detail.host).prop('href', detail.url);
+        }
+    );
 }
 
 
