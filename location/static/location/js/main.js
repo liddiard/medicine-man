@@ -84,6 +84,7 @@ function populatePlaceDetail(elem) {
             elem.find('.map').prop('src', detail.map);
             elem.find('.map-link').prop('href', detail.map_link);
             elem.find('.separator').text('|');
+            elem.find('.loading').hide();
             elem.data('fetched', true);
         }
     );

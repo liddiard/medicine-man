@@ -245,6 +245,7 @@ footer {
 
     .address {
         color: gray;
+        margin: 0.5em 0;
     }
 
     .separator {
@@ -264,6 +265,11 @@ footer {
             display: block;
             float: left;
         }
+    }
+
+    .loading {
+        display: block;
+        margin: 1em auto;
     }
 
     .map {

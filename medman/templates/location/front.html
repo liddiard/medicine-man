@@ -87,7 +87,10 @@
                 <p class="contact">
                     <span class="phone"></span>  <span class="separator"></span>  <a class="website"></a>
                 </p>
-                <a class="map-link" href="" target="_blank"><img class="map" src=""/></a>
+                <a class="map-link" title="Full map" href="" target="_blank">
+                    <img class="map" src=""/>
+                </a>
+                <img class="loading" src="{{ STATIC_URL }}location/img/spinner.gif"/>
             </div>
             <div class="mask">
                 <span>{{ place.name }}</span>

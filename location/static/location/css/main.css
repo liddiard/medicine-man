@@ -180,7 +180,8 @@ footer {
     .place:first-child .popup:after {
       left: 90px; }
   .popup .address {
-    color: gray; }
+    color: gray;
+    margin: 0.5em 0; }
   .popup .separator {
     color: gray; }
   .popup .rating {
@@ -192,6 +193,9 @@ footer {
       width: 20px;
       display: block;
       float: left; }
+  .popup .loading {
+    display: block;
+    margin: 1em auto; }
   .popup .map {
     margin-top: 1em;
     display: block; }
