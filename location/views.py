@@ -53,7 +53,7 @@ class FrontView(TemplateView):
                 'rating': place.get('rating'),
                 'coordinates': (place['geometry']['location']['lat'], 
                                 place['geometry']['location']['lng']),
-                'photo': photo.url
+                'photo': photo
             })
         return places
 
@@ -103,7 +103,7 @@ class PlaceDetailView(AjaxView):
             'host': host,
             'rating': result.get('rating'),
             'open_hours': result.get('open_hours'),
-            'map': map_image.url
+            'map': map_image
         }
         return self.success(detail=detail)
 
@@ -139,10 +139,9 @@ def reference_to_photo(ref):
     q = ('https://maps.googleapis.com/maps/api/place/photo?maxwidth=200'
          '&photoreference=%s&sensor=false&key=%s') % (ref, 
                                                       settings.GOOGLE_API_KEY)
-    response = urllib2.urlopen(q)
-    return response
+    return q
 
 def coordinant_to_map(lat, lng):
     q = ('http://maps.googleapis.com/maps/api/staticmap?markers=%s,%s'
          '&size=268x179&zoom=13&sensor=false' % (lat, lng))
-    return response
+    return q
