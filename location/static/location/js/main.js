@@ -9,6 +9,9 @@ $(document).ready(function(){
         $('.popup').fadeOut('fast');
         $('.place').removeClass('active');
     });
+    $('.popup').click(function(event){
+        event.stopPropagation();
+    });
     $('.place').click(function(event){
         event.stopPropagation();
         $('.place').removeClass('active');
