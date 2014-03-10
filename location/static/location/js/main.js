@@ -69,6 +69,8 @@ function showPiece(prev, current, forward) {
 }
 
 function populatePlaceDetail(elem) {
+    if (elem.data('fetched'))
+        return; // don't re-request the data if it's already populated
     var reference = elem.data('reference');
     ajaxGet(
         {reference: reference}, 
@@ -78,6 +80,7 @@ function populatePlaceDetail(elem) {
             var detail = response.detail;
             elem.find('.phone').text(detail.phone);
             elem.find('.website').text(detail.host).prop('href', detail.url);
+            elem.data('fetched', true);
         }
     );
 }
