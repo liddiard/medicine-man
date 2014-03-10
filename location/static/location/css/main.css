@@ -25,13 +25,15 @@ header {
 
 footer {
   position: absolute;
+  display: table;
   bottom: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1em;
+  padding: 0.75em 1.5em;
   box-sizing: border-box; }
   footer #refer {
-    float: right;
+    display: table-cell;
+    vertical-align: middle;
     text-decoration: none; }
     footer #refer span {
       display: block;
@@ -102,7 +104,7 @@ footer {
   height: 100px;
   background-position: center;
   float: left;
-  margin: 0 5px;
+  margin: 0 10px 0 0;
   cursor: pointer; }
   .place.active {
     box-shadow: 0 0 0 2px white; }
