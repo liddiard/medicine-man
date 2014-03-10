@@ -6,15 +6,15 @@ $(document).ready(function(){
 
     /* popups */
     $('body').click(function(){
-        $('.popup').hide();
+        $('.popup').fadeOut('fast');
         $('.place').removeClass('active');
     });
     $('.place').click(function(event){
         event.stopPropagation();
         $('.place').removeClass('active');
-        $('.popup').hide();
+        $('.popup').fadeOut('fast');
         var popup = $(this).find('.popup');
-        popup.toggle();
+        popup.fadeToggle('fast');
         $(this).toggleClass('active');
         populatePlaceDetail(popup);
     });
