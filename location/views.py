@@ -146,7 +146,7 @@ def reference_to_photo(ref):
 
 def coordinant_to_map(lat, lng):
     q = ('http://maps.googleapis.com/maps/api/staticmap?markers=%s,%s'
-         '&size=268x179&zoom=13&sensor=false' % (lat, lng))
+         '&size=268x179&zoom=12&sensor=false' % (lat, lng))
     return q
 
 def coordinant_to_map_link(lat, lng):
