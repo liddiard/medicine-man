@@ -129,6 +129,18 @@ footer {
       bottom: 0;
       margin: 5px 10px;
       font-weight: bold; }
+  @media (max-width: 1200px) {
+    .place:nth-child(4) {
+      display: none; } }
+  @media (max-width: 990px) {
+    .place:nth-child(3) {
+      display: none; } }
+  @media (max-width: 780px) {
+    .place:nth-child(2) {
+      display: none; } }
+  @media (max-width: 570px) {
+    .place:nth-child(1) {
+      display: none; } }
 
 .btn {
   display: inline-block;

@@ -171,6 +171,30 @@ footer {
             font-weight: bold;
         }
     }
+
+    @media (max-width: 1200px) {
+        &:nth-child(4) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 990px) {
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 780px) {
+        &:nth-child(2) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 570px) {
+        &:nth-child(1) {
+            display: none;
+        }
+    }
 }
 
 .btn {
