@@ -81,7 +81,7 @@
                         <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
                         {% endif %}
                     </span>
-                    <span class="rating-number">{{ place.rating }}</span>
+                    <span class="rating-number">{{ place.rating|floatformat:1 }}</span>
                 </p>
                 {% endif %}
                 <p class="contact">
