@@ -36,7 +36,9 @@ var bindArrows = function() {
 
 function nextSlide() {
     var current = $('.artwork:visible');
+    console.log(current);
     var next = current.next().length == 0 ? $('.artwork').first() : current.next();
+    console.log(next);
     rotator_intervalid = showPiece(current, next, true);
 }
 
