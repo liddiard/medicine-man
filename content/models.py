@@ -40,7 +40,7 @@ class Image(models.Model):
             super(Image, self).save(force_insert, force_update, *args, **kwargs)
             image = PyImage.open(self.image)
             image.thumbnail(size, PyImage.ANTIALIAS)
-            image.save(self.image.path)
+            image.save()
         else:
             super(Image, self).save(force_insert, force_update, *args, **kwargs)
         self.__original_image = self.image
