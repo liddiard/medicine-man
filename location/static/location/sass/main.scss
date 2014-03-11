@@ -45,7 +45,6 @@ header {
 
 footer {
     position: absolute;
-    display: table;
     bottom: 0;
     width: 100%;
     background-color: rgba(0,0,0, 0.5);
@@ -55,7 +54,8 @@ footer {
     box-sizing: border-box;
 
     #refer {
-        display: table-cell;
+        display: block;
+        margin: 1em 0;
         vertical-align: middle;
         text-decoration: none;
 
