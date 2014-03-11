@@ -1,6 +1,8 @@
-from django.db import models
 from tinymce.models import HTMLField
 from PIL import Image as PyImage
+
+from django.db import models
+from django.core.files.storage import default_storage as storage
 
 
 class Site(models.Model):
@@ -40,7 +42,9 @@ class Image(models.Model):
             super(Image, self).save(force_insert, force_update, *args, **kwargs)
             image = PyImage.open(self.image)
             image.thumbnail(size, PyImage.ANTIALIAS)
-            image.save()
+            file_storage = storage.open(self.image.name, 'w')
+            image.save(file_storage, 'jpg')
+            file_storage.close()
         else:
             super(Image, self).save(force_insert, force_update, *args, **kwargs)
         self.__original_image = self.image
