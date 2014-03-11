@@ -125,4 +125,4 @@ AWS_PRELOAD_METADATA = True
 GOOGLE_API_KEY = "AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o"
 
 # grappelli
-GRAPPELLI_ADMIN_TITLE = "Medicine Man Domain Management"
+GRAPPELLI_ADMIN_TITLE = "Mark Sublette Domain Management"
