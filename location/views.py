@@ -42,11 +42,12 @@ class FrontView(TemplateView):
     def format_places(self, area):
         limit = 4
         places_data = string_to_nearby(area)
-        places_results = places_data['results']
-        places = []
-        for place in places_results[:limit]:
+        places_with_photos = [place for place in places_data['results']
+                              if place.get('photos')]
+        places_to_render = []
+        for place in places_with_photos[:limit]:
             photo = reference_to_photo(place['photos'][0]['photo_reference'])
-            places.append({
+            places_to_render.append({
                 'reference': place['reference'],
                 'name': place['name'],
                 'address': place['vicinity'],
@@ -55,7 +56,7 @@ class FrontView(TemplateView):
                                 place['geometry']['location']['lng']),
                 'photo': photo
             })
-        return places
+        return places_to_render
 
 
 # abstract base classes
