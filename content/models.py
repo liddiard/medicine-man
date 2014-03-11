@@ -43,7 +43,7 @@ class Image(models.Model):
             image = PyImage.open(self.image)
             image.thumbnail(size, PyImage.ANTIALIAS)
             file_storage = storage.open(self.image.name, 'w')
-            image.save(file_storage, 'jpg')
+            image.save(file_storage, 'JPEG')
             file_storage.close()
         else:
             super(Image, self).save(force_insert, force_update, *args, **kwargs)
