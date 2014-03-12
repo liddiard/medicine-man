@@ -53,13 +53,11 @@ function showPiece(prev, current, forward) {
     if (typeof rotator_intervalid != 'undefined') clearInterval(rotator_intervalid);
     $('.next, .prev').unbind('click').addClass('disabled'); // disable buttons while we're transitioning
     if (forward) {
-        console.log(prev.css('background-image'));
-        console.log(current.css('background-image'));
-        prev.animate({'background-position-x': '-=50px', 'opacity': 0}, 1000).hide(1000);
-        current.css({'background-position-x': '50px', 'opacity': 0}).show().animate({'opacity': 1}, 1000);
+        prev.animate({'opacity': 0}, 1000).hide(1000);
+        current.css({'opacity': 0}).show().animate({'opacity': 1}, 1000);
     } else {
-        prev.animate({'background-position-x': '+=50px', 'opacity': 0}, 1000).hide(1000);
-        current.css({'background-position-x': '-50px', 'opacity': 0}).show().animate({'background-position-x': '+=50px', 'opacity': 1}, 1000);
+        prev.animate({'opacity': 0}, 1000).hide(1000);
+        current.css({'opacity': 0}).show().animate({'opacity': 1}, 1000);
     }
     prev.find('.plaque, .view-item').fadeOut(500);
     setTimeout(function(){
