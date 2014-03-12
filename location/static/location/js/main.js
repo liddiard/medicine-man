@@ -36,9 +36,7 @@ var bindArrows = function() {
 
 function nextSlide() {
     var current = $('.artwork:visible');
-    console.log(current);
     var next = current.next().length == 0 ? $('.artwork').first() : current.next();
-    console.log(next);
     rotator_intervalid = showPiece(current, next, true);
 }
 
@@ -55,6 +53,8 @@ function showPiece(prev, current, forward) {
     if (typeof rotator_intervalid != 'undefined') clearInterval(rotator_intervalid);
     $('.next, .prev').unbind('click').addClass('disabled'); // disable buttons while we're transitioning
     if (forward) {
+        console.log(prev.prop('src'));
+        console.log(next.prop('src'));
         prev.animate({'background-position-x': '-=50px', 'opacity': 0}, 1000).hide(1000);
         current.css({'background-position-x': '50px', 'opacity': 0}).show().animate({'background-position-x': '-=50px', 'opacity': 1}, 1000);
     } else {
