@@ -54,7 +54,7 @@ function showPiece(prev, current, forward) {
     $('.next, .prev').unbind('click').addClass('disabled'); // disable buttons while we're transitioning
     if (forward) {
         console.log(prev.css('background-image'));
-        console.log(current.prop('background-image'));
+        console.log(current.css('background-image'));
         prev.animate({'background-position-x': '-=50px', 'opacity': 0}, 1000).hide(1000);
         current.css({'background-position-x': '50px', 'opacity': 0}).show().animate({'background-position-x': '-=50px', 'opacity': 1}, 1000);
     } else {
