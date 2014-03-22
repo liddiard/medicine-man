@@ -19,6 +19,7 @@ body {
     border: 0;
     padding: 0;
     text-shadow: 2px 2px black;
+    overflow: hidden;
 }
 
 a {
@@ -44,7 +45,6 @@ footer {
     width: 100%;
     background-color: rgba(0,0,0, 0.5);
     padding: 0.75em 1.5em;
-    overflow: hidden;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -118,7 +118,7 @@ footer {
     z-index: -1;
 
     .plaque {
-        margin-top: 125px;
+        margin-top: 140px;
         background-color: rgba(0,0,0, 0.5);
         display: inline-block;
         padding: 2em;
@@ -168,7 +168,7 @@ footer {
         white-space: normal;
 
         &.active {
-            box-shadow: 0 0 0 2px white;
+            box-shadow: 0 0 0 3px white;
         }
 
         & > .mask {
@@ -212,7 +212,7 @@ footer {
 .popup {
     $TRIANGLE_SIZE: 10px;
     position: fixed; // http://stackoverflow.com/a/5211045/2487925
-    bottom: ($PLACE_HEIGHT * 2); // + $TRIANGLE_SIZE;
+    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE + 4;
     display: none;
     background-color: white;
     color: black;

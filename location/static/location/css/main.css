@@ -5,7 +5,8 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  text-shadow: 2px 2px black; }
+  text-shadow: 2px 2px black;
+  overflow: hidden; }
 
 a {
   color: inherit; }
@@ -26,7 +27,6 @@ footer {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0.75em 1.5em;
-  overflow: hidden;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -79,7 +79,7 @@ footer {
   text-align: center;
   z-index: -1; }
   .artwork .plaque {
-    margin-top: 125px;
+    margin-top: 140px;
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;
     padding: 2em;
@@ -117,7 +117,7 @@ footer {
     cursor: pointer;
     white-space: normal; }
     #places .place.active {
-      box-shadow: 0 0 0 2px white; }
+      box-shadow: 0 0 0 3px white; }
     #places .place > .mask {
       width: 100%;
       height: 100%;
@@ -159,7 +159,7 @@ footer {
 
 .popup {
   position: fixed;
-  bottom: 200px;
+  bottom: 114px;
   display: none;
   background-color: white;
   color: black;
