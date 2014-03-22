@@ -189,9 +189,9 @@ footer {
     text-decoration: none; }
     .popup a:hover {
       color: #0044aa; }
-  .place:first-child .popup {
+  .popup.leftmost {
     margin-left: 0; }
-    .place:first-child .popup:after {
+    .popup.leftmost:after {
       left: 90px; }
   .popup .address {
     color: gray;

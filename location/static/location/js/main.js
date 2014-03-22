@@ -3,7 +3,9 @@ $(window).load(function() {
         animation: "slide",
         animationLoop: false,
         itemWidth: 210,
+        after: positionPopups
     });
+    window.setTimeout(positionPopups, 1000);
 });
 
 $(document).ready(function(){
@@ -13,13 +15,17 @@ $(document).ready(function(){
     var current = $('.artwork:visible'); // we need to give showPiece an empty selector
     rotator_intervalid = showPiece(current, first, true);
 
+
     /* popups */
+
     $('body').click(function(){
         hidePopups();
     });
+
     $('.popup').click(function(event){
         event.stopPropagation();
     });
+
     $('.place').click(function(event){
         var active = $(this).hasClass('active');
         event.stopPropagation();
@@ -87,6 +93,15 @@ function hidePopups() {
     $('.place').removeClass('active');
 }
 
+function positionPopups() {
+    $('.slides li').each(function(){
+        $(this).find('.popup').removeClass('leftmost');
+        console.log($(this).position());
+        if ($(this).position().left < 1)
+            $(this).find('.popup').addClass('leftmost');
+    });
+}
+
 function populatePlaceDetail(elem) {
     if (elem.data('fetched'))
         return; // don't re-request the data if it's already populated
@@ -109,7 +124,6 @@ function populatePlaceDetail(elem) {
         }
     );
 }
-
 
 /* utility functions */
 

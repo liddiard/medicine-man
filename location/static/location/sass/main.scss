@@ -251,7 +251,7 @@ footer {
         }
     }
 
-    .place:first-child & {
+    &.leftmost {
         margin-left: 0;
 
         &:after {
