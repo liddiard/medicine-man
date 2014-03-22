@@ -1,9 +1,12 @@
-$(document).ready(function(){
-
-    $('#places').perfectScrollbar({
-        suppressScrollY: true,
-        wheelSpeed: 0,
+$(window).load(function() {
+    $('.flexslider').flexslider({
+        animation: "slide",
+        animationLoop: false,
+        itemWidth: 210,
     });
+});
+
+$(document).ready(function(){
 
     $('.artwork, .plaque, .view-item').hide();
     var first = $('.artwork').first();
@@ -28,12 +31,6 @@ $(document).ready(function(){
             $(this).toggleClass('active');
             populatePlaceDetail(popup);
         }
-    });
-    $('#places').scroll(function(){
-        hidePopups();
-    });
-    $('#places').mousewheel(function(event, delta) {
-        this.scrollLeft -= (delta * 20);
     });
 });
 

@@ -30,72 +30,76 @@
 </div>
 
 <footer>
-    <div id="places">
-    {% for place in places %}
-        <div class="place" style="background-image: url({{ place.photo }})">
-            <div data-reference="{{ place.reference }}" class="popup">
-                <h2>{{ place.name }}</h2>
-                <p class="address">{{ place.address }}</p>
-                <p class="open"></p>
-                {% if place.rating %}
-                <p class="rating">
-                    <span class="stars">
-                        {% if place.rating > 0.75 %}
-                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
-                        {% elif place.rating > 0.25 %}
-                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
-                        {% else %}
-                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
-                        {% endif %}
+    <div id="places" class="flexslider">
+        <ul class="slides">
+        {% for place in places %}
+            <li>
+                <div class="place" style="background-image: url({{ place.photo }})">
+                    <div data-reference="{{ place.reference }}" class="popup">
+                        <h2>{{ place.name }}</h2>
+                        <p class="address">{{ place.address }}</p>
+                        <p class="open"></p>
+                        {% if place.rating %}
+                        <p class="rating">
+                            <span class="stars">
+                                {% if place.rating > 0.75 %}
+                                <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                                {% elif place.rating > 0.25 %}
+                                <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                                {% else %}
+                                <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% endif %}
 
-                        {% if place.rating > 1.75 %}
-                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
-                        {% elif place.rating > 1.25 %}
-                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
-                        {% else %}
-                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
-                        {% endif %}
+                                {% if place.rating > 1.75 %}
+                                <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                                {% elif place.rating > 1.25 %}
+                                <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                                {% else %}
+                                <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% endif %}
 
-                        {% if place.rating > 2.75 %}
-                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
-                        {% elif place.rating > 2.25 %}
-                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
-                        {% else %}
-                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
-                        {% endif %}
+                                {% if place.rating > 2.75 %}
+                                <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                                {% elif place.rating > 2.25 %}
+                                <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                                {% else %}
+                                <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% endif %}
 
-                        {% if place.rating > 3.75 %}
-                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
-                        {% elif place.rating > 3.25 %}
-                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
-                        {% else %}
-                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
-                        {% endif %}
+                                {% if place.rating > 3.75 %}
+                                <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                                {% elif place.rating > 3.25 %}
+                                <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                                {% else %}
+                                <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% endif %}
 
-                        {% if place.rating > 4.75 %}
-                        <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
-                        {% elif place.rating > 4.25 %}
-                        <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
-                        {% else %}
-                        <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% if place.rating > 4.75 %}
+                                <img src="{{ STATIC_URL }}location/img/star_full.svg"/>
+                                {% elif place.rating > 4.25 %}
+                                <img src="{{ STATIC_URL }}location/img/star_half.svg"/>
+                                {% else %}
+                                <img src="{{ STATIC_URL }}location/img/star_empty.svg"/>
+                                {% endif %}
+                            </span>
+                            <span class="rating-number">{{ place.rating|floatformat:1 }}</span>
+                        </p>
                         {% endif %}
-                    </span>
-                    <span class="rating-number">{{ place.rating|floatformat:1 }}</span>
-                </p>
-                {% endif %}
-                <p class="contact">
-                    <span class="phone"></span><span class="separator"></span><a class="website"></a>
-                </p>
-                <a class="map-link" title="Full map" href="" target="_blank">
-                    <img class="map" src=""/>
-                </a>
-                <img class="loading" src="{{ STATIC_URL }}location/img/spinner.gif"/>
-            </div>
-            <div class="mask">
-                <span>{{ place.name }}</span>
-            </div>
-        </div>
-    {% endfor %}
+                        <p class="contact">
+                            <span class="phone"></span><span class="separator"></span><a class="website"></a>
+                        </p>
+                        <a class="map-link" title="Full map" href="" target="_blank">
+                            <img class="map" src=""/>
+                        </a>
+                        <img class="loading" src="{{ STATIC_URL }}location/img/spinner.gif"/>
+                    </div>
+                    <div class="mask">
+                        <span>{{ place.name }}</span>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
     <img class="advert" src="http://i.imgur.com/69MjkMj.png"/>
     <a id="refer" href="http://medicinemangallery.com/">
