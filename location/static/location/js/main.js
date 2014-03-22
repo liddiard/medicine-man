@@ -96,7 +96,6 @@ function hidePopups() {
 function positionPopups() {
     $('.slides li').each(function(){
         $(this).find('.popup').removeClass('leftmost');
-        console.log($(this).position());
         if ($(this).position().left < 1)
             $(this).find('.popup').addClass('leftmost');
     });
