@@ -19,10 +19,6 @@ header {
     font-weight: normal;
     display: inline-block;
     text-shadow: 1px 2px 4px black; }
-  header #advert {
-    display: inline-block;
-    float: right;
-    margin: 1em; }
 
 footer {
   position: absolute;
@@ -33,9 +29,13 @@ footer {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+  footer .advert {
+    float: left;
+    margin: 0.5em 1em 0 0; }
   footer #refer {
     display: block;
-    margin: 1em 0;
+    float: right;
+    margin-top: 0.5em;
     vertical-align: middle;
     text-decoration: none; }
     footer #refer span {
@@ -78,7 +78,7 @@ footer {
   text-align: center;
   z-index: -1; }
   .artwork .plaque {
-    margin-top: 150px;
+    margin-top: 125px;
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;
     padding: 2em;
@@ -160,7 +160,7 @@ footer {
 
 .popup {
   position: fixed;
-  bottom: 206px;
+  bottom: 200px;
   display: none;
   background-color: white;
   color: black;

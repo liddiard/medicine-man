@@ -36,12 +36,6 @@ header {
         display: inline-block;
         text-shadow: 1px 2px 4px black;
     }
-
-    #advert {
-        display: inline-block;
-        float: right;
-        margin: 1em;
-    }
 }
 
 footer {
@@ -54,9 +48,15 @@ footer {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 
+    .advert {
+        float: left;
+        margin: 0.5em 1em 0 0;
+    }
+
     #refer {
         display: block;
-        margin: 1em 0;
+        float: right;
+        margin-top: 0.5em;
         vertical-align: middle;
         text-decoration: none;
 
@@ -117,7 +117,7 @@ footer {
     z-index: -1;
 
     .plaque {
-        margin-top: 150px;
+        margin-top: 125px;
         background-color: rgba(0,0,0, 0.5);
         display: inline-block;
         padding: 2em;
@@ -213,7 +213,7 @@ footer {
 .popup {
     $TRIANGLE_SIZE: 10px;
     position: fixed; // http://stackoverflow.com/a/5211045/2487925
-    bottom: ($PLACE_HEIGHT * 2) + 6px; // + $TRIANGLE_SIZE;
+    bottom: ($PLACE_HEIGHT * 2); // + $TRIANGLE_SIZE;
     display: none;
     background-color: white;
     color: black;
