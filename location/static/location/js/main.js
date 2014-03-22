@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
-    $('#places').perfectScrollbar({suppressScrollY: true});
+    $('#places').perfectScrollbar({
+        suppressScrollY: true,
+        wheelSpeed: 5,
+    });
 
     $('.artwork, .plaque, .view-item').hide();
     var first = $('.artwork').first();
@@ -28,6 +31,9 @@ $(document).ready(function(){
     });
     $('#places').scroll(function(){
         hidePopups();
+    });
+    $('#places').mousewheel(function(event, delta) {
+        this.scrollLeft -= (delta * 2);
     });
 });
 
