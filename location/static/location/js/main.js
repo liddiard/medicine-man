@@ -33,7 +33,7 @@ $(document).ready(function(){
         hidePopups();
     });
     $('#places').mousewheel(function(event, delta) {
-        this.scrollLeft -= (delta * 2);
+        this.scrollLeft -= (delta * 30);
     });
 });
 
