@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $('#places').perfectScrollbar({
         suppressScrollY: true,
-        wheelSpeed: 5,
+        wheelSpeed: 0,
     });
 
     $('.artwork, .plaque, .view-item').hide();
@@ -33,7 +33,7 @@ $(document).ready(function(){
         hidePopups();
     });
     $('#places').mousewheel(function(event, delta) {
-        this.scrollLeft -= (delta * 30);
+        this.scrollLeft -= (delta * 20);
     });
 });
 
