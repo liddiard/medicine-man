@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    $('#places').perfectScrollbar({suppressScrollY: true});
+
     $('.artwork, .plaque, .view-item').hide();
     var first = $('.artwork').first();
     var current = $('.artwork:visible'); // we need to give showPiece an empty selector
@@ -6,20 +9,25 @@ $(document).ready(function(){
 
     /* popups */
     $('body').click(function(){
-        $('.popup').fadeOut('fast');
-        $('.place').removeClass('active');
+        hidePopups();
     });
     $('.popup').click(function(event){
         event.stopPropagation();
     });
     $('.place').click(function(event){
+        var active = $(this).hasClass('active');
         event.stopPropagation();
-        $('.place').removeClass('active');
-        $('.popup').fadeOut('fast');
-        var popup = $(this).find('.popup');
-        popup.fadeToggle('fast');
-        $(this).toggleClass('active');
-        populatePlaceDetail(popup);
+        hidePopups();
+        if (!active) { // show popup if the place wasn't just active
+            var popup = $(this).find('.popup');
+            popup.css('margin-left', '-='+$('#places').scrollLeft()); // add an offset for x-scroll
+            popup.fadeToggle('fast');
+            $(this).toggleClass('active');
+            populatePlaceDetail(popup);
+        }
+    });
+    $('#places').scroll(function(){
+        hidePopups();
     });
 });
 
@@ -69,6 +77,11 @@ function showPiece(prev, current, forward) {
     }, 4000);
 
     return setInterval(function(){ nextSlide() }, 10000);
+}
+
+function hidePopups() {
+    $('.popup').fadeOut('fast', function(){ $(this).css('margin-left', '') }); // reset the scroll margin offset set with .css() on $(this).show()
+    $('.place').removeClass('active');
 }
 
 function populatePlaceDetail(elem) {

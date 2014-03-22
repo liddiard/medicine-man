@@ -40,7 +40,7 @@ class FrontView(TemplateView):
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
 
     def format_places(self, area):
-        limit = 4
+        limit = 12
         places_data = string_to_nearby(area)
         places_with_photos = [place for place in places_data['results']
                               if place.get('photos')]
