@@ -77,10 +77,10 @@ footer {
 
 .arrow {
     position: absolute;
-    top: 40%;
+    top: 32%;
     background-color: black;
     padding: 15px 10px;
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: pointer;
 
     &:hover {
@@ -91,7 +91,7 @@ footer {
         cursor: default;
 
         &:hover {
-            opacity: 0.5;
+            opacity: 0.4;
         }
     }
 
