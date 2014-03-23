@@ -122,7 +122,7 @@ AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_PRELOAD_METADATA = True
 
-GOOGLE_API_KEY = "AIzaSyB6R31HHidq6Dm6qf6g1-c8iAKiadHq33o"
+GOOGLE_API_KEY = get_env_variable('GOOGLE_API_KEY')
 
 # grappelli
 GRAPPELLI_ADMIN_TITLE = "Mark Sublette Domain Management"
