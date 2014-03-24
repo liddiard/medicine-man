@@ -158,8 +158,8 @@ footer {
     margin-top: 1em; }
 
 .popup {
-  position: fixed;
-  bottom: 116px;
+  position: absolute;
+  bottom: 112px;
   display: none;
   background-color: white;
   color: black;

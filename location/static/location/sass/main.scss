@@ -211,8 +211,8 @@ footer {
 
 .popup {
     $TRIANGLE_SIZE: 10px;
-    position: fixed; // http://stackoverflow.com/a/5211045/2487925
-    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE + 6;
+    position: absolute; // http://stackoverflow.com/a/5211045/2487925
+    bottom: $PLACE_HEIGHT + $TRIANGLE_SIZE + 2;
     display: none;
     background-color: white;
     color: black;
