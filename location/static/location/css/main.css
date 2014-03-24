@@ -201,8 +201,6 @@ footer {
   .popup .rating {
     color: #f90;
     font-size: 1.1em; }
-    .popup .rating .stars {
-      padding-right: 0.5em; }
     .popup .rating img {
       width: 20px;
       display: block;
