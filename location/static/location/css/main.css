@@ -200,15 +200,11 @@ footer {
     color: gray; }
   .popup .rating {
     color: #f90;
-    font-size: 1.4em;
-    margin: 0.5em 0 0; }
+    font-size: 1.1em; }
     .popup .rating .stars {
-      display: inline-block;
-      margin-right: 0.2em; }
-    .popup .rating .rating-number {
-      vertical-align: top; }
+      padding-right: 0.5em; }
     .popup .rating img {
-      width: 24px;
+      width: 20px;
       display: block;
       float: left; }
   .popup .loading {
