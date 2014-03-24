@@ -270,14 +270,20 @@ footer {
 
     .rating {
         color: #f90;
-        font-size: 1.1em;
+        font-size: 1.4em;
+        margin: 0.5em 0 0;
 
         .stars {
-            margin-right: 0.5em;
+            display: inline-block;
+            margin-right: 0.2em;
+        }
+
+        .rating-number {
+            vertical-align: top;
         }
 
         img {
-            width: 20px;
+            width: 24px;
             display: block;
             float: left;
         }
