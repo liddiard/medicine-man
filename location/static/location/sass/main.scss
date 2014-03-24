@@ -52,6 +52,7 @@ footer {
     .advert {
         float: left;
         margin: 0.5em 1em 0 0;
+        box-shadow: 1px 2px 4px black;
     }
 
     #refer {
@@ -166,6 +167,7 @@ footer {
         margin: 0 10px 0 0;
         cursor: pointer;
         white-space: normal;
+        box-shadow: 1px 2px 4px black;
 
         &.active {
             box-shadow: 0 0 0 2px white;

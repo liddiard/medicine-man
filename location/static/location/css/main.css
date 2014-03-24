@@ -32,7 +32,8 @@ footer {
   box-sizing: border-box; }
   footer .advert {
     float: left;
-    margin: 0.5em 1em 0 0; }
+    margin: 0.5em 1em 0 0;
+    box-shadow: 1px 2px 4px black; }
   footer #refer {
     display: block;
     float: right;
@@ -115,7 +116,8 @@ footer {
     background-position: center;
     margin: 0 10px 0 0;
     cursor: pointer;
-    white-space: normal; }
+    white-space: normal;
+    box-shadow: 1px 2px 4px black; }
     #places .place.active {
       box-shadow: 0 0 0 2px white; }
     #places .place > .mask {
