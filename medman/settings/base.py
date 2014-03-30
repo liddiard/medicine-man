@@ -34,7 +34,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'medicine-man.herokuapp.com']
+ALLOWED_HOSTS = [] # this gets set dynamically at runtime by router/__init__.py
 
 # Application definition
 
