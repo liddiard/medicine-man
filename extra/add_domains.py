@@ -27,14 +27,16 @@ domain = app.domains
 
 # try adding domains
 for d in domains:
+    d = "www." + d # add "www." to the beginning of all domains
     try:
         domain.add(d)
-        d_success += 1
-        print "added: %s" % d
     except HTTPError:
         domains_error.append(d)
         d_failure += 1
         print "ERROR adding: %s" % d
+    else:
+        d_success += 1
+        print "added: %s" % d
 
 # print the report
 if domains_error:
