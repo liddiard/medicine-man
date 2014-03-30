@@ -27,7 +27,6 @@ domain = app.domains
 
 # try adding domains
 for d in domains:
-    d = "www." + d # add "www." to the beginning of all domains
     try:
         domain.add(d)
     except HTTPError:
