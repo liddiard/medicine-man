@@ -1,10 +1,13 @@
 # the following method of dynamically updating settings at runtime
 # is per the suggestion of http://stackoverflow.com/a/16111968/2487925
 
+import os
+
 from django.conf import settings
+
 from .models import Domain
 
-if not settings.DEBUG:
+if not os.environ.get('LOCAL_ENV'):
     settings.ALLOWED_HOSTS = [domain.url for domain in Domain.objects.all()]
 
     # make sure we could still access the admin domain even if the db were reset
