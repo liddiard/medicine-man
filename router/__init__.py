@@ -4,8 +4,9 @@
 from django.conf import settings
 from .models import Domain
 
-settings.ALLOWED_HOSTS = [domain.url for domain in Domain.objects.all()]
+if not settings.DEBUG:
+    settings.ALLOWED_HOSTS = [domain.url for domain in Domain.objects.all()]
 
-# make sure we could still access the admin domain even if the db were reset
-if settings.ADMINISTRATIVE_DOMAIN not in settings.ALLOWED_HOSTS:
-    settings.ALLOWED_HOSTS.append(settings.ADMINISTRATIVE_DOMAIN)
+    # make sure we could still access the admin domain even if the db were reset
+    if settings.ADMINISTRATIVE_DOMAIN not in settings.ALLOWED_HOSTS:
+        settings.ALLOWED_HOSTS.append(settings.ADMINISTRATIVE_DOMAIN)
