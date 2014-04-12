@@ -127,5 +127,10 @@ GOOGLE_API_KEY = get_env_variable('GOOGLE_API_KEY')
 # grappelli
 GRAPPELLI_ADMIN_TITLE = "Mark Sublette Domain Management"
 
+# heroku
+HEROKU_APP_NAME = "medicine-man"
+HEROKU_EMAIL = get_env_variable('HEROKU_EMAIL')
+HEROKU_PASSWORD = get_env_variable('HEROKU_PASSWORD')
+
 # site should always be accessible from this domain
-ADMINISTRATIVE_DOMAIN = "medicine-man.herokuapp.com"
+ADMINISTRATIVE_DOMAIN = HEROKU_APP_NAME + ".herokuapp.com"
