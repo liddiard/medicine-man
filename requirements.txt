@@ -7,9 +7,9 @@ boto==2.19.0
 dj-database-url==0.2.2
 django-grappelli==2.5.2
 django-storages==1.1.8
-django-tinymce==1.5.1
 heroku==0.1.4
 psycopg2==2.5.1
 python-dateutil==1.5
 requests==2.2.1
 wsgiref==0.1.2
+git+https://github.com/progressive-cms/django-tinymce4.git#egg=tinymce
