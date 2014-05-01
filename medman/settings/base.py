@@ -117,7 +117,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-AWS_STORAGE_BUCKET_NAME = "medicine-man"
+AWS_STORAGE_BUCKET_NAME = "medicine-man-gallery"
 AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_PRELOAD_METADATA = True
