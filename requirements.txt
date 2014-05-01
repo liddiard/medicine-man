@@ -3,7 +3,7 @@ Pillow==2.3.0
 South==0.8.4
 argparse==1.2.1
 beautifulsoup4==4.3.2
-boto==2.19.0
+boto==2.27.0
 dj-database-url==0.2.2
 django-grappelli==2.5.2
 django-storages==1.1.8
