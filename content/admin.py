@@ -4,6 +4,7 @@ from .models import Site, Image
 
 class SiteAdmin(admin.ModelAdmin):
     list_display = ('domain',)
+    search_fields = ['domain__name', 'domain__url']
 
 
 admin.site.register(Site, SiteAdmin)
