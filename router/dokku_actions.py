@@ -1,7 +1,5 @@
+import os
 from subprocess import call
-
-from django.conf import settings
-
 
 def add_domain(name):
     """
@@ -9,7 +7,7 @@ def add_domain(name):
     Requires dokku domains plugin: 
     https://github.com/wmluke/dokku-domains-plugin
     """
-    if settings.LOCAL_ENV:
+    if os.environ.get('LOCAL_ENV'):
         return
     from .models import Domain
     domains = " ".join([domain.url for domain in Domain.objects.all()])
