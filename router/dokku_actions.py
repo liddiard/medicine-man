@@ -14,5 +14,6 @@ def add_domain(name):
     from .models import Domain
     domains = " ".join([domain.url for domain in Domain.objects.all()])
     domains += " " + name
-    cmd = "dokku domains:set %s %s" % (settings.ADMINISTRATIVE_DOMAIN, domains)
+    cmd = "%s domains:set %s %s" % (settings.DOKKU_PATH, 
+                                    settings.ADMINISTRATIVE_DOMAIN, domains)
     call(cmd, shell=True) 
