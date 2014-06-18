@@ -8,6 +8,8 @@ from .models import Domain
 def add_domain(name):
     """
     This is a dokku-specific function. It won't do anything in development.
+    Requires dokku domains plugin: 
+    https://github.com/wmluke/dokku-domains-plugin
     """
     if settings.LOCAL_ENV:
         return
