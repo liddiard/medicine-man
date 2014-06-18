@@ -1,6 +1,8 @@
 import os
 from subprocess import call
 
+from django.conf import settings
+
 def add_domain(name):
     """
     This is a dokku-specific function. It won't do anything in development.
