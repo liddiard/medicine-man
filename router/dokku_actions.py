@@ -2,8 +2,6 @@ from subprocess import call
 
 from django.conf import settings
 
-from .models import Domain
-
 
 def add_domain(name):
     """
@@ -13,6 +11,7 @@ def add_domain(name):
     """
     if settings.LOCAL_ENV:
         return
+    from .models import Domain
     domains = " ".join([domain.url for domain in Domain.objects.all()])
     domains += " " + name
     cmd = "dokku domains:set %s %s" % (settings.ADMINISTRATIVE_DOMAIN, domains)
