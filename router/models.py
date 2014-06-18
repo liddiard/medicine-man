@@ -1,5 +1,5 @@
 from django.db import models
-from .heroku_actions import add_domain
+from .dokku_actions import add_domain
 
 class Domain(models.Model):
     url = models.CharField(max_length=64, unique=True)
