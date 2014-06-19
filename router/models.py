@@ -1,5 +1,5 @@
 from django.db import models
-from .dokku_actions import add_domain
+
 
 class Domain(models.Model):
     url = models.CharField(max_length=64, unique=True)
@@ -16,11 +16,6 @@ class Domain(models.Model):
         corresponding <a href="../../../location/site/add/">location site</a> 
         or <a href="../../../content/site/add/">content site</a>.
     '''
-
-    def save(self, *args, **kwargs):
-        if self.pk is None:
-            add_domain(self.url)
-        super(Domain, self).save(*args, **kwargs)
     
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.url) 
