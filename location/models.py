@@ -1,3 +1,5 @@
+from django.db import models
+
 from router.models import ClearCacheOnSaveModel
 
 

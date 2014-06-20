@@ -2,6 +2,7 @@ from tinymce.models import HTMLField
 from PIL import Image as PyImage
 
 from django.core.files.storage import default_storage as storage
+from django.db import models
 
 from router.models import ClearCacheOnSaveModel
 
