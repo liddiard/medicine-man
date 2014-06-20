@@ -1,22 +1,7 @@
 from django.db import models
-from django.core.cache import cache
 
 
-class ClearCacheOnSaveModel(models.Model):
-    
-    class Meta:
-        abstract = True
-
-    def delete(self, *args, **kwargs):
-        cache.clear()
-        super(ClearCacheOnSaveModel, self).delete(*args, **kwargs)
-
-    def save(self, *args, **kwargs):
-        cache.clear()
-        super(ClearCacheOnSaveModel, self).save(*args, **kwargs)
-
-
-class Domain(ClearCacheOnSaveModel):
+class Domain(models.Model):
     url = models.CharField(max_length=64, unique=True)
     url.help_text = "Actual name of this domain (e.g. bostonartgallery.com)"
     name = models.CharField(max_length=64)

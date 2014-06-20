@@ -4,10 +4,8 @@ from PIL import Image as PyImage
 from django.core.files.storage import default_storage as storage
 from django.db import models
 
-from router.models import ClearCacheOnSaveModel
 
-
-class Site(ClearCacheOnSaveModel):
+class Site(models.Model):
     domain = models.OneToOneField('router.Domain', related_name='content')
     body = HTMLField()
     body.help_text = '''
@@ -24,7 +22,7 @@ class Site(ClearCacheOnSaveModel):
         return self.domain.name
 
 
-class Image(ClearCacheOnSaveModel):
+class Image(models.Model):
     image = models.ImageField(upload_to='content_images')
     image.help_text = '''
         For best display, images should be greater than or equal to 640  

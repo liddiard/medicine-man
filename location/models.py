@@ -1,9 +1,7 @@
 from django.db import models
 
-from router.models import ClearCacheOnSaveModel
 
-
-class Site(ClearCacheOnSaveModel):
+class Site(models.Model):
     domain = models.OneToOneField('router.Domain', related_name='location')
     area = models.CharField(max_length=64)
     area.help_text = '''
@@ -15,7 +13,7 @@ class Site(ClearCacheOnSaveModel):
         return self.domain.name
 
 
-class Artwork(ClearCacheOnSaveModel):
+class Artwork(models.Model):
     image = models.ImageField(upload_to='location_artwork')
     image.help_text = '''
         For best display, artwork should be between 1280x720 and 1920x1080 

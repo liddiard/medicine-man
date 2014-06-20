@@ -6,6 +6,10 @@ from urlparse import urlparse
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.generic import View, TemplateView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
+from django.template.defaultfilters import slugify
 
 from router.models import Domain
 from .models import Site, Artwork
@@ -40,6 +44,9 @@ class FrontView(TemplateView):
         return HttpResponse(error_msg % domain_name, content_type='text/plain')
 
     def format_places(self, area):
+        cached = cache.get('places_'+slugify(area))
+        if cached:
+            return cached
         limit = 12
         places_data = string_to_nearby(area)
         places_with_photos = [place for place in places_data['results']
@@ -56,6 +63,7 @@ class FrontView(TemplateView):
                                 place['geometry']['location']['lng']),
                 'photo': photo
             })
+        cache.set('places_'+slugify(area))
         return places_to_render
 
 
@@ -80,6 +88,7 @@ class AjaxView(View):
 
 class PlaceDetailView(AjaxView):
 
+    @method_decorator(cache_page(60*60*24*7)) # cache for one week
     def get(self, request):
         reference = request.GET.get('reference')
         if reference is None:
