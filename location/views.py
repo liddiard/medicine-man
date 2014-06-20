@@ -63,7 +63,7 @@ class FrontView(TemplateView):
                                 place['geometry']['location']['lng']),
                 'photo': photo
             })
-        cache.set('places_'+slugify(area))
+        cache.set('places_'+slugify(area), places_to_render)
         return places_to_render
 
 
