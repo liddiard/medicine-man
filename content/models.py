@@ -1,11 +1,12 @@
 from tinymce.models import HTMLField
 from PIL import Image as PyImage
 
-from django.db import models
 from django.core.files.storage import default_storage as storage
 
+from router.models import ClearCacheOnSaveModel
 
-class Site(models.Model):
+
+class Site(ClearCacheOnSaveModel):
     domain = models.OneToOneField('router.Domain', related_name='content')
     body = HTMLField()
     body.help_text = '''
@@ -22,7 +23,7 @@ class Site(models.Model):
         return self.domain.name
 
 
-class Image(models.Model):
+class Image(ClearCacheOnSaveModel):
     image = models.ImageField(upload_to='content_images')
     image.help_text = '''
         For best display, images should be greater than or equal to 640  
