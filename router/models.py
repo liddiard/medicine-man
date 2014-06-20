@@ -9,11 +9,11 @@ class ClearCacheOnSaveModel(models.Model):
 
     def delete(self, *args, **kwargs):
         cache.clear()
-        super(CCOnSaveModel, self).delete(*args, **kwargs)
+        super(ClearCacheOnSaveModel, self).delete(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         cache.clear()
-        super(CCOnSaveModel, self).save(*args, **kwargs)
+        super(ClearCacheOnSaveModel, self).save(*args, **kwargs)
 
 
 class Domain(ClearCacheOnSaveModel):
